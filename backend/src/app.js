@@ -1,11 +1,15 @@
 const express = require('express')
+const routes = require('./routes')
 const database = require('./database')
 
 const app = express()
 
 const configureApp = () => {
   app.use(express.json())
+
+  app.use('/', routes)
   app.database = database
+
   return app
 }
 
