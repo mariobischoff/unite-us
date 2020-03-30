@@ -4,6 +4,7 @@ const UsersController = require('../controllers/users')
 
 const usersController = new UsersController(User)
 
-router.get('/', usersController.get)
+router.get('/', (req, res) => usersController.get(req, res))
+router.post('/', (req, res) => usersController.create(req, res))
 
 module.exports = router
