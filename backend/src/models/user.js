@@ -8,15 +8,18 @@ const schema = new mongoose.Schema({
     unique: true
   },
   password: {
+    type: String
+  },
+  role: {
     type: String,
-    select: false
+    default: 'guest'
   }
 })
 
 schema.pre('save', async function (next) {
   if (!this.password || !this.isModified('password')) return next()
   try {
-    const hashPassword = await bcrypt.hashSync(this.password, 10)
+    const hashPassword = await bcrypt.hash(this.password, 10)
     this.password = hashPassword
   } catch (err) {
     next(err)
@@ -24,8 +27,21 @@ schema.pre('save', async function (next) {
 })
 
 schema.methods.comparePassword = async function (candidatePassword) {
-  return bcrypt.compareSync(candidatePassword, this.password)
+  try {
+    const match = await bcrypt.compare(candidatePassword, this.password)
+    return match
+  } catch (err) {
+    console.error(err.message)
+  }
 }
+
+schema.set('toJSON', {
+  transform: (doc, ret) => ({
+    _id: ret._id,
+    email: ret.email,
+    role: ret.role
+  })
+})
 
 const User = mongoose.model('User', schema)
 
