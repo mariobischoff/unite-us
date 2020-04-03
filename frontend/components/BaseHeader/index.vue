@@ -34,25 +34,22 @@ export default {
 }
 </script>
 
-<style scoped>
-.navbar {
-  background-color: #952597;
-  display: flex;
-  height: 120px;
-  justify-content: space-between;
-  align-items: center;
-}
+<style lang="sass" scoped>
+.navbar
+  background-color: $primary
+  display: flex
+  height: 120px
+  justify-content: space-between
+  align-items: center
 
-.links > a {
-  text-decoration: none;
-  color: whitesmoke;
-  font-weight: bold;
-  font-size: 1.8em;
-  margin-right: 25px;
-}
+.links > a
+  text-decoration: none
+  color: whitesmoke
+  font-weight: bold
+  font-size: 1.8em
+  margin-right: 25px
 
-.logo > img {
-  margin-left: 25px;
-  width: 120px;
-}
+.logo > img
+  margin-left: 25px
+  width: 120px
 </style>
