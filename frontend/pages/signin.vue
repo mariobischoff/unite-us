@@ -1,12 +1,13 @@
 <template>
-  <div>
-    <h3>Home</h3>
-  </div>
+  <div><h3>sigin</h3></div>
 </template>
 
 <script>
-
 export default {
-  layout: 'BaseLayout'
+
 }
 </script>
+
+<style>
+
+</style>

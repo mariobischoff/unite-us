@@ -2,15 +2,25 @@
   <div>
     <nav class="navbar">
       <div class="logo">
-        <img src="~/assets/logo.svg" alt="Logo Unite US">
+        <img src="~/assets/logo-default.svg" alt="Logo Unite US">
       </div>
       <div class="links">
         <nuxt-link
           v-for="(path, index) in paths"
           :key="index"
+          exact-active-class="active-link"
           :to="path.path"
         >
           {{ path.name }}
+        </nuxt-link>
+
+        <nuxt-link
+          v-for="authPath in auth"
+          :key="authPath.path"
+          exact-active-class="active-link"
+          :to="authPath.path"
+        >
+          {{ authPath.name }}
         </nuxt-link>
       </div>
     </nav>
@@ -23,11 +33,13 @@ export default {
     return {
       paths: [
         { name: 'Home', path: '/' },
-        { name: 'Equipes', path: '/' },
-        { name: 'Profissionais', path: '/' },
-        { name: 'Sobre', path: '/' },
-        { name: 'Login', path: '/' },
-        { name: 'Cadastrar', path: '/' }
+        { name: 'Equipes', path: '/team' },
+        { name: 'Profissionais', path: '/professionals' },
+        { name: 'Sobre', path: '/about' }
+      ],
+      auth: [
+        { name: 'Login', path: '/signin' },
+        { name: 'Cadastrar', path: '/signup' }
       ]
     }
   }
@@ -36,20 +48,23 @@ export default {
 
 <style lang="sass" scoped>
 .navbar
-  background-color: $primary
+  // background-color: $primary
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75)
   display: flex
-  height: 120px
-  justify-content: space-between
+  height: 110px
   align-items: center
 
 .links > a
+  color: $primary
   text-decoration: none
-  color: whitesmoke
   font-weight: bold
-  font-size: 1.8em
-  margin-right: 25px
+  font-size: 1.2em
+  margin-right: 20px
+
+.active-link
+  color: black !important
 
 .logo > img
-  margin-left: 25px
-  width: 120px
+  margin-left: 30px
+  width: 100px
 </style>

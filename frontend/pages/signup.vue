@@ -1,12 +1,15 @@
 <template>
   <div>
-    <h3>Home</h3>
+    <h3>signup</h3>
   </div>
 </template>
 
 <script>
-
 export default {
-  layout: 'BaseLayout'
+
 }
 </script>
+
+<style>
+
+</style>
