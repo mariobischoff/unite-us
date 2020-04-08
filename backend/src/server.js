@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
   try {
     const app = await setupApp()
     const server = app.listen(port, () => {
-      console.log(`app running on port ${port}`)
+      console.log(`api running on port ${port}`)
     })
     const exitSignals = ['SIGINT', 'SIGTERM', 'SIGQUIT']
     exitSignals.map(sig => {

@@ -4,6 +4,16 @@ module.exports = class UsersController {
     this.AuthService = AuthService
   }
 
+  async create (req, res) {
+    const user = this.User(req.body)
+    try {
+      await user.save()
+      res.sendStatus(201)
+    } catch (err) {
+      res.status(422).send(err.message)
+    }
+  }
+
   async get (req, res) {
     try {
       const users = await this.User.find({})
@@ -13,13 +23,39 @@ module.exports = class UsersController {
     }
   }
 
-  async create (req, res) {
-    const user = await this.User(req.body)
+  async getById (req, res) {
+    const {
+      params: { id }
+    } = req
     try {
+      const user = await this.User.find({ _id: id })
+      res.send(user)
+    } catch (err) {
+      res.status(400).send(err.message)
+    }
+  }
+
+  async update (req, res) {
+    const body = req.body
+    try {
+      const user = await this.User.findById(req.params.id)
+      user.email = body.email
+      for (const key in Object.keys(body)) {
+        user[key] = body[key]
+      }
       await user.save()
-      res.sendStatus(201)
+      res.sendStatus(200)
     } catch (err) {
       res.status(422).send(err.message)
+    }
+  }
+
+  async remove (req, res) {
+    try {
+      await this.User.deleteOne({ _id: req.params.id })
+      res.sendStatus(204)
+    } catch (err) {
+      res.status(400).send(err.message)
     }
   }
 

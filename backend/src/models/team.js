@@ -1,9 +1,15 @@
-const mongoose = require('mongoose')
+const { Schema, model } = require('mongoose')
 
-const schema = new mongoose.Schema({
-  // Definir o esquema da Equipe
+const schema = new Schema({
+  name: {
+    type: String
+  },
+  leader: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 })
 
-const Team = mongoose.model('Team', schema)
+const Team = model('Team', schema)
 
 module.exports = Team

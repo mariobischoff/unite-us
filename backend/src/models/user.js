@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
+const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
-const schema = new mongoose.Schema({
+const schema = new Schema({
   email: {
     type: String,
     required: true,
@@ -13,6 +13,12 @@ const schema = new mongoose.Schema({
   role: {
     type: String,
     default: 'guest'
+  },
+  firstName: {
+    type: String
+  },
+  lastName: {
+    type: String
   }
 })
 
@@ -43,6 +49,6 @@ schema.set('toJSON', {
   })
 })
 
-const User = mongoose.model('User', schema)
+const User = model('User', schema)
 
 module.exports = User
