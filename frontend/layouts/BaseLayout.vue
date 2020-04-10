@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BaseHeader from '@/components/BaseHeader'
+import BaseHeader from '@/components/BaseHeader.vue'
 
 export default {
   components: { BaseHeader }
