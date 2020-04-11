@@ -7,17 +7,22 @@ $secondary: #FFF;
 $accent: #28D04D;
 $text-body: #484747;
 
-h1 {
+.content-title {
+  font-size: 30px;
+  color: $primary;
+}
+
+.text-title {
   font-size: 25px;
   margin-bottom: 10px;
 }
 
-p {
+.text-body {
   font-size: 20px;
   color: $text-body;
 }
 
-#container {
+.container {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -25,13 +30,13 @@ p {
   min-height: 100%;
 }
 
-#content-left {
+.content-left {
   display: flex;
   flex-direction: column;
   justify-content: left;
 }
 
-#content-right {
+.content-right {
   display: flex;
   flex-direction: column;
   justify-content: right;
