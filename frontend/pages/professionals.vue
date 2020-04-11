@@ -1,7 +1,11 @@
 <template>
   <div>
     <div id="container">
-      <h3>Profissionais</h3>
+      <div id="content-left">
+        <h1 class="content-title">Profissinais</h1>
+      </div>
+      <div id="content-right">
+      </div>
     </div>
     <base-footer />
   </div>
@@ -17,6 +21,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass" scoped>
+#container > #content-left
+  flex: 1
+
+#container > #content-right
+  flex: 3
+  justify-content: center
+  align-items: center
 
 </style>

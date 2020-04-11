@@ -27,9 +27,6 @@ footer
   justify-content: space-around
   align-items: center
 
-footer > #supporters > p
-  color: #fff
-
-footer > #informations > p
+p
   color: #fff
 </style>
