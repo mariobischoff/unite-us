@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar">
       <div class="logo">
-        <img src="~/assets/logo-negative.svg" alt="Logo Unite US">
+        <img src="~/assets/logos/logo-negative.svg" alt="Logo Unite US">
       </div>
       <div class="links">
         <nuxt-link
@@ -48,9 +48,8 @@ export default {
 
 <style lang="sass" scoped>
 .navbar
+  height: 100px
   background-color: $primary
-  height: 110px
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75)
   display: flex
   flex-direction: row
   align-items: center

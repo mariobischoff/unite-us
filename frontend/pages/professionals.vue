@@ -1,11 +1,19 @@
 <template>
-  <div><h3>Professionals</h3></div>
+  <div>
+    <div id="container">
+      <h3>Profissionais</h3>
+    </div>
+    <base-footer />
+  </div>
 </template>
 
 <script>
+import BaseFooter from '@/components/BaseFooter.vue'
 export default {
-  layout: 'BaseLayout'
-
+  layout: 'BaseLayout',
+  components: {
+    BaseFooter
+  }
 }
 </script>
 

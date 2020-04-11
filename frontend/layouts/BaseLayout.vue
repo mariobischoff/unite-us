@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-header />
+    <base-header :signin="dialog" />
     <nuxt />
   </div>
 </template>
@@ -9,6 +9,16 @@
 import BaseHeader from '@/components/BaseHeader.vue'
 
 export default {
-  components: { BaseHeader }
+  components: {
+    BaseHeader
+  },
+  data () {
+    return {
+      dialog: false
+    }
+  }
 }
 </script>
+
+<style lang="sass" scoped>
+</style>
