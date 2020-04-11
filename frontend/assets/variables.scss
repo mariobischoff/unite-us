@@ -5,3 +5,34 @@
 $primary: #952597;
 $secondary: #FFF;
 $accent: #28D04D;
+$text-body: #484747;
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 20px;
+  color: $text-body;
+}
+
+#container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  min-height: 100%;
+}
+
+#content-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+#content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
