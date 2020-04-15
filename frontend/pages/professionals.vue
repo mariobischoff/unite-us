@@ -2,10 +2,11 @@
   <div>
     <div id="container">
       <div id="content-left">
-        <h1 class="content-title">Profissinais</h1>
+        <h1 class="content-title">
+          Profissinais
+        </h1>
       </div>
-      <div id="content-right">
-      </div>
+      <div id="content-right" />
     </div>
     <base-footer />
   </div>
