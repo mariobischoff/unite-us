@@ -1,12 +1,22 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
 // The variables you want to modify
-// $font-size-root: 20px;
 $primary: #952597;
-// $primary: #3702ab;
 $secondary: #FFF;
 $accent: #28D04D;
+$any: #838383; 
 $text-body: #484747;
+
+.buttom-accept {
+  font-size: 15px;
+  background-color: $accent;
+  color: $secondary;
+}
+
+.buttom-any {
+  font-size: 15px;
+  color: $any;
+}
 
 .content-title {
   font-size: 30px;
@@ -24,7 +34,6 @@ $text-body: #484747;
 }
 
 .container {
-  // position: relative;
   display: flex;
   flex-direction: row;
   padding: 2%;
@@ -41,4 +50,8 @@ $text-body: #484747;
   display: flex;
   flex-direction: column;
   justify-content: right;
+}
+
+.input-primary {
+  color: $primary
 }
