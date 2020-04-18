@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="container">
-      <div id="content-left">
+    <div class="container">
+      <div class="content-left">
         <h1 class="text-title">
           Sobre a UNITE US
         </h1>
@@ -15,21 +15,16 @@
           Talent Contact Acquisition: Etiam vel congue magna, in sodales augue. Quisque eget convallis metus. Praesent ornare nisl sit amet malesuada dictum. Maecenas eget interdum felis, quis sagittis diam. Quisque ultrices nunc mauris, a vestibulum est egestas sed.
         </p>
       </div>
-      <div id="content-right">
+      <div class="content-right">
         <img src="~/assets/logos/logo-default.svg" alt="Logo Unite US">
       </div>
     </div>
-    <base-footer />
   </div>
 </template>
 
 <script>
-import BaseFooter from '@/components/BaseFooter.vue'
 export default {
-  layout: 'BaseLayout',
-  components: {
-    BaseFooter
-  }
+  layout: 'BaseLayout'
 }
 </script>
 

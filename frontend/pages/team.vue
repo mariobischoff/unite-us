@@ -1,32 +1,27 @@
 <template>
   <div>
-    <div id="container">
-      <div id="content-left">
+    <div class="container">
+      <div class="content-left">
         <h1 class="content-title">
           Equipes
         </h1>
       </div>
-      <div id="content-right" />
+      <div class="content-right" />
     </div>
-    <base-footer />
   </div>
 </template>
 
 <script>
-import BaseFooter from '@/components/BaseFooter.vue'
 export default {
-  layout: 'BaseLayout',
-  components: {
-    BaseFooter
-  }
+  layout: 'BaseLayout'
 }
 </script>
 
 <style lang="sass" scoped>
-#container > #content-left
+.container > .content-left
   flex: 1
 
-#container > #content-right
+.container > .content-right
   flex: 3
   justify-content: center
   align-items: center

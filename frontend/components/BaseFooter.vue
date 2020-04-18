@@ -17,6 +17,7 @@ export default {
 <style lang="sass" scoped>
 
 footer
+  margin-top: 100%
   position: absolute
   bottom: 0
   width: 100%
