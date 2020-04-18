@@ -1,12 +1,12 @@
 <template>
-  <footer>
+  <v-footer id="footer">
     <div id="supporters">
       <p>Apoiadores</p>
     </div>
     <div id="informations">
       <p>informações</p>
     </div>
-  </footer>
+  </v-footer>
 </template>
 
 <script>
@@ -16,11 +16,10 @@ export default {
 
 <style lang="sass" scoped>
 
-footer
-  margin-top: 100%
-  position: absolute
-  bottom: 0
+#footer
+  position: fixed
   width: 100%
+  bottom: 0
   flex: 1
   background-color: $primary
   display: flex
