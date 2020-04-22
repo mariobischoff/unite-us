@@ -1,14 +1,15 @@
 const express = require('express')
 const routes = require('./routes')
 const database = require('./database')
+const cors = require('cors')
 const morgan = require('morgan')
 
 const app = express()
 
 const configureApp = () => {
   app.use(express.json())
+  app.use(cors())
   app.use(morgan('tiny'))
-
   app.use('/', routes)
   app.database = database
 
