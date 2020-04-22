@@ -31,6 +31,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/vue-notification'
   ],
   /*
   ** Nuxt.js dev-modules
