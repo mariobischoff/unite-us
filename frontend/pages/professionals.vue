@@ -13,7 +13,8 @@
 
 <script>
 export default {
-  layout: 'BaseLayout'
+  layout: 'BaseLayout',
+  middleware: 'authenticated'
 }
 </script>
 

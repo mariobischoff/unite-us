@@ -35,7 +35,7 @@
         </v-btn>
       </div>
     </v-card>
-    <notifications position="bottom left" :speed="500" />
+    <notifications position="bottom" />
   </div>
 </template>
 
@@ -60,13 +60,17 @@ export default {
     authenticate () {
       this.login(this.user)
         .then(() => {
+          // this.$notify({
+          //   text: 'Conectado!',
+          //   type: 'success'
+          // })
           this.$router.push({ name: 'index' })
         })
         .catch((error) => {
           // eslint-disable-next-line
           console.log(error.message)
           this.$notify({
-            text: 'Email ou senha invalido!',
+            text: 'Email ou senha inválido!',
             type: 'error'
           })
         })

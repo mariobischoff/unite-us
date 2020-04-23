@@ -14,20 +14,28 @@
           {{ path.name }}
         </nuxt-link>
 
-        <nuxt-link
-          v-for="authPath in auth"
-          :key="authPath.path"
-          exact-active-class="active-link"
-          :to="authPath.path"
-        >
-          {{ authPath.name }}
-        </nuxt-link>
+        <template v-if="!isAuth">
+          <nuxt-link
+            v-for="authPath in auth"
+            :key="authPath.path"
+            exact-active-class="active-link"
+            :to="authPath.path"
+          >
+            {{ authPath.name }}
+          </nuxt-link>
+        </template>
+        <template v-else>
+          <!-- A API retornara o nome do usuário -->
+          <span>Bem Vindo</span>
+        </template>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'BaseHeader',
   data () {
@@ -43,6 +51,11 @@ export default {
         { name: 'Cadastrar-se', path: '/signup' }
       ]
     }
+  },
+  computed: {
+    ...mapGetters({
+      isAuth: 'user/isAuth'
+    })
   }
 }
 </script>

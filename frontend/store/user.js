@@ -1,12 +1,22 @@
 import service from '../services/users'
 
 export const state = () => ({
-  auth: false
+  auth: false,
+  error: false
 })
 
 export const mutations = {
   SET_AUTH (state, auth) {
     state.auth = auth
+  },
+  SET_ERROR (state, error) {
+    state.error = error
+  }
+}
+
+export const getters = {
+  isAuth (state) {
+    return state.auth
   }
 }
 
@@ -21,6 +31,7 @@ export const actions = {
           resolve()
         })
         .catch((error) => {
+          commit('SET_ERROR', error.message)
           reject(error)
         })
     })
