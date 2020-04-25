@@ -1,6 +1,6 @@
 <template>
   <div div="container">
-    <v-card class="card" outlined @keypress="authenticate">
+    <v-card class="card" outlined @keypress.enter="authenticate">
       <div class="logo">
         <img src="~/assets/logos/logo-default.svg" alt="Logo Unite US">
       </div>
@@ -35,6 +35,7 @@
         </v-btn>
       </div>
     </v-card>
+    <notifications position="bottom" />
   </div>
 </template>
 
@@ -53,9 +54,26 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['user/login']),
+    ...mapActions({
+      login: 'user/login'
+    }),
     authenticate () {
-      this.$store.dispatch('user/login', this.user)
+      this.login(this.user)
+        .then(() => {
+          // this.$notify({
+          //   text: 'Conectado!',
+          //   type: 'success'
+          // })
+          this.$router.push({ name: 'index' })
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error.message)
+          this.$notify({
+            text: 'Email ou senha inválido!',
+            type: 'error'
+          })
+        })
     }
   }
 }
@@ -79,5 +97,9 @@ export default {
 .card > .buttons
   display: flex
   justify-content: space-around
+
+.card > .buttom-any
+  margin: 0 0 3px 0
+  font-size: 10px
 
 </style>

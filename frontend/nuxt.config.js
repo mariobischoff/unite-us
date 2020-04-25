@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  server: {
+    port: 3333
+  },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -31,6 +34,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/vue-notification.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules
