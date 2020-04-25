@@ -14,7 +14,8 @@ $text-body: #484747;
 }
 
 .buttom-any {
-  font-size: 15px;
+  margin: 0 0 3px 0;
+  font-size: 10px;
   color: $any;
 }
 
@@ -52,6 +53,12 @@ $text-body: #484747;
   justify-content: right;
 }
 
+.form-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 .input-primary {
-  color: $primary
+  color: $primary;
 }

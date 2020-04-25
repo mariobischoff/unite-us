@@ -80,7 +80,4 @@ export default {
   display: flex
   justify-content: space-around
 
-.card > .buttom-any
-  margin: 0 0 3px 0
-  font-size: 10px
 </style>
