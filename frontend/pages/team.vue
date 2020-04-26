@@ -6,14 +6,20 @@
           Equipes
         </h1>
       </div>
-      <div class="content-right" />
+      <div class="content-right">
+        <content-card class="card" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import ContentCard from '@/components/ContentCard.vue'
 export default {
-  layout: 'BaseLayout'
+  layout: 'BaseLayout',
+  components: {
+    ContentCard
+  }
 }
 </script>
 
@@ -25,5 +31,12 @@ export default {
   flex: 3
   justify-content: center
   align-items: center
+
+.card
+  box-shadow: 5px 10px #C3C3C3aa
+  width: 600px
+  height: 200px
+  border-radius: 0 0 0 40px
+  padding: 0
 
 </style>
