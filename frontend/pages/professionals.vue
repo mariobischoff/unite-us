@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="content-right">
-      <content-card class="card" />
+      <content-card class="card-content" />
     </div>
   </div>
 </template>
@@ -29,12 +29,5 @@ export default {
   flex: 3
   justify-content: center
   align-items: center
-
-.card
-  box-shadow: 5px 10px #C3C3C3aa
-  width: 600px
-  height: 200px
-  border-radius: 0 0 0 40px
-  padding: 0
 
 </style>
