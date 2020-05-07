@@ -12,12 +12,9 @@ const schema = new Schema({
   },
   role: {
     type: String,
-    default: 'guest'
+    default: 'common'
   },
-  firstName: {
-    type: String
-  },
-  lastName: {
+  fullName: {
     type: String
   }
 })

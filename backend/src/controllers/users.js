@@ -5,12 +5,16 @@ module.exports = class UsersController {
   }
 
   async create (req, res) {
-    const user = this.User(req.body)
-    try {
-      await user.save()
-      res.sendStatus(201)
-    } catch (err) {
-      res.status(422).send(err.message)
+    if (req.body.password !== req.body.repassword) {
+      res.status(422).send('password don\'t match')
+    } else {
+      const user = this.User(req.body)
+      try {
+        await user.save()
+        res.sendStatus(201)
+      } catch (err) {
+        res.status(422).send(err.message)
+      }
     }
   }
 
@@ -72,7 +76,7 @@ module.exports = class UsersController {
         email: user.email,
         role: user.role
       })
-      return res.send({ token })
+      return res.send({ token, name: user.fullName })
     } catch (error) {
       return res.send(error)
     }
