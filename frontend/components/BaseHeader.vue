@@ -26,7 +26,7 @@
         </template>
         <template v-else>
           <!-- A API retornara o nome do usuário -->
-          <span>Bem Vindo</span>
+          <span>Bem Vindo {{ fullName }}</span>
         </template>
       </div>
     </nav>
@@ -54,7 +54,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isAuth: 'user/isAuth'
+      isAuth: 'user/isAuth',
+      fullName: 'user/fullName'
     })
   }
 }
