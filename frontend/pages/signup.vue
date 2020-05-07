@@ -1,6 +1,6 @@
 <template>
   <div div="container" data-app>
-    <v-card class="card" outlined>
+    <v-card class="card" outlined width="700px">
       <div class="logo">
         <p class="text-title">
           Bem vindo a
@@ -25,18 +25,18 @@
             <template v-slot:activator="{ on }">
               <v-text-field
                 v-model="user.birthOfDay"
-                class="input"
+                class="input-primary"
                 label="Data de nascimento"
                 readonly
                 v-on="on"
               />
             </template>
-            <v-date-picker v-model="user.birthOfDay" scrollable>
+            <v-date-picker v-model="user.birthOfDay" scrollable color="#952597">
               <v-spacer />
-              <v-btn text color="primary" @click="displayDialog = false">
+              <v-btn text color="#952597" @click="displayDialog = false">
                 Cancel
               </v-btn>
-              <v-btn text color="primary" @click="$refs.dialog.save(date)">
+              <v-btn text color="#952597" @click="$refs.dialog.save(date)">
                 OK
               </v-btn>
             </v-date-picker>
@@ -106,9 +106,9 @@ export default {
     return {
       showPassword: false,
       selectAvailability: [
-        'home office',
-        'presencial',
-        'misto'
+        'Home Office',
+        'Presencial',
+        'Misto'
       ],
       selectExperise: [
         'Design',

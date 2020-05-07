@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="content-left info">
-      <h1 class="text-title">Nome</h1>
+      <h1 class="text-title">
+        Nome
+      </h1>
       <p>[email]</p>
       <p>[idade]</p>
       <p>[endereco]</p>
@@ -22,7 +24,9 @@
       </ul>
     </div>
     <div class="content-right">
-      <h1 class="content-title">Equipes</h1>
+      <h1 class="content-title">
+        Equipes
+      </h1>
       <content-card class="card-content" />
     </div>
   </div>

@@ -12,13 +12,31 @@
       <div class="content-right">
         <img src="~/assets/images-content/equipe.jpg" alt="Imagem de equipe">
       </div>
+      <notifications position="top center" width="100%" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  layout: 'BaseLayout'
+  layout: 'BaseLayout',
+  computed: {
+    ...mapGetters({
+      isAuth: 'user/isAuth'
+    })
+  },
+  mounted () {
+    if (this.isAuth) { this.notifyLogin() }
+  },
+  methods: {
+    notifyLogin () {
+      this.$notify({
+        text: 'Conectado!',
+        type: 'success'
+      })
+    }
+  }
 }
 </script>
 

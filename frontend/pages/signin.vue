@@ -60,15 +60,9 @@ export default {
     authenticate () {
       this.login(this.user)
         .then(() => {
-          // this.$notify({
-          //   text: 'Conectado!',
-          //   type: 'success'
-          // })
           this.$router.push({ name: 'index' })
         })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error.message)
+        .catch(() => {
           this.$notify({
             text: 'Email ou senha inválido!',
             type: 'error'

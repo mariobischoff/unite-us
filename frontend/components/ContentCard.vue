@@ -6,10 +6,10 @@
         <h1>Name</h1>
         <p>Expertise</p>
       </div>
-      </div>
-      <div class="content-right">
-        <div>
-          <h1 class="content-title">
+    </div>
+    <div class="content-right">
+      <div>
+        <h1 class="content-title">
           Habilidades
         </h1>
         <ul class="text-body">
