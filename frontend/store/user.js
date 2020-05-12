@@ -1,9 +1,7 @@
-import service from '../services/users'
-
 export const state = () => ({
   fullName: null,
   auth: false,
-  error: false
+  error: null
 })
 
 export const mutations = {
@@ -28,32 +26,23 @@ export const getters = {
 }
 
 export const actions = {
-  login ({ commit }, payload) {
-    return new Promise((resolve, reject) => {
-      service.auth({ payload })
-        .then((response) => {
-          const token = response.data.token
-          const fullName = response.data.name
-          localStorage.setItem('token', token)
-          commit('SET_AUTH', true)
-          commit('SET_NAME', fullName)
-          resolve()
-        })
-        .catch((error) => {
-          commit('SET_ERROR', error.message)
-          reject(error)
-        })
-    })
+  async login ({ commit }, payload) {
+    try {
+      commit('SET_ERROR', null)
+      const { name, token } = await this.$axios.$post('/users/auth', payload)
+      localStorage.setItem('token', token)
+      commit('SET_AUTH', true)
+      commit('SET_NAME', name)
+    } catch (error) {
+      commit('SET_ERROR', error.message)
+    }
   },
-  register (payload) {
-    return new Promise((resolve, reject) => {
-      service.create({ payload })
-        .then(() => {
-          resolve()
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
+  async register ({ commit }, payload) {
+    try {
+      commit('SET_ERROR', null)
+      await this.$axios.post('/user', payload)
+    } catch (error) {
+      commit('SET_ERROR', error.message)
+    }
   }
 }

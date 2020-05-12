@@ -18,25 +18,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
-  layout: 'BaseLayout',
-  computed: {
-    ...mapGetters({
-      isAuth: 'user/isAuth'
-    })
-  },
-  mounted () {
-    if (this.isAuth) { this.notifyLogin() }
-  },
-  methods: {
-    notifyLogin () {
-      this.$notify({
-        text: 'Conectado!',
-        type: 'success'
-      })
-    }
-  }
+  layout: 'BaseLayout'
 }
 </script>
 

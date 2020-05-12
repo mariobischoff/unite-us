@@ -35,7 +35,7 @@
 <script>
 import ContentCard from '@/components/ContentCard.vue'
 export default {
-  layotut: 'BaseLayout',
+  layout: 'BaseLayout',
   components: {
     ContentCard
   }

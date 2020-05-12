@@ -26,7 +26,12 @@
         </template>
         <template v-else>
           <!-- A API retornara o nome do usuário -->
-          <span>Bem Vindo {{ fullName }}</span>
+          <nuxt-link
+            to="/perfil"
+            exact-active-class="active-link"
+          >
+            Perfil
+          </nuxt-link>
         </template>
       </div>
     </nav>
@@ -83,6 +88,13 @@ export default {
   font-weight: bold
   font-size: 1.2em
   margin-right: 20px
+
+.navbar > .links > span
+  color: $secondary
+  text-decoration: none
+  font-weight: bold
+  font-size: 1.2em
+  margion-right: 30px
 
 .active-link
   color: $accent !important

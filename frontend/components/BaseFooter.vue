@@ -2,6 +2,7 @@
   <v-footer id="footer">
     <div id="supporters">
       <p>Apoiadores</p>
+      <img src="~/assets/logos/logo-fatece.png" alt="Fatece Logo" width="200px">
     </div>
     <div id="informations">
       <p>informações</p>
@@ -27,7 +28,6 @@ export default {
   flex-direction: row
   justify-content: space-around
   align-items: center
-
 p
   color: #fff
 </style>

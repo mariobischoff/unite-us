@@ -6,8 +6,14 @@
           Equipes
         </h1>
       </div>
-      <div class="content-right">
-        <content-card class="card" />
+      <div
+        class="content-right"
+      >
+        <content-card
+          v-for="team in teams"
+          :key="team._id"
+          class="card"
+        />
       </div>
     </div>
   </div>
@@ -17,9 +23,19 @@
 import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',
+  middleware: 'authenticated',
   components: {
     ContentCard
+  },
+  async asyncData ({ $axios }) {
+    const teams = await $axios.$get('/teams')
+    return { teams }
   }
+  // data () {
+  //   return {
+  //     teams: []
+  //   }
+  // }
 }
 </script>
 

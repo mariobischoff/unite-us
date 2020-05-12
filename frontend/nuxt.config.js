@@ -4,7 +4,7 @@ export default {
   server: {
     port: 3333
   },
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -56,6 +56,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://localhost:3000'
   },
   /*
   ** vuetify module configuration
