@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <v-app>
     <base-header :signin="dialog" />
-    <nuxt />
+    <v-content>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-content>
     <base-footer />
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -22,6 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-</style>

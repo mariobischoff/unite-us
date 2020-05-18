@@ -26,8 +26,14 @@ export default {
   background-color: $primary
   display: flex
   flex-direction: row
-  justify-content: space-around
+  justify-content: space-between
   align-items: center
+  #supporters
+    display: flex
+    align-items: center
+    p
+      margin: 0px
+
 p
   color: #fff
 </style>

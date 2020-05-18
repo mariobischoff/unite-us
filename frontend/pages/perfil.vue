@@ -1,43 +1,31 @@
 <template>
   <div class="container">
-    <div class="content-left info">
+    <div class="content-left">
       <h1 class="text-title">
-        Nome
+        {{ fullName }}
       </h1>
-      <p>[email]</p>
-      <p>[idade]</p>
-      <p>[endereco]</p>
-      <p>Especilidade</p>
-      <p>[especialidade]</p>
-      <p>Disponibilidade</p>
-      <p>[disponibilidade]</p>
-      <p>Pretenção Salarial</p>
-      <p>[pretenção-salarial]</p>
-      <p>Última Formação Academica</p>
-      <p>[ultima-formacao-academica]</p>
-      <p>Habildidades</p>
-      <ul>
-        <li>[habilidade]</li>
-        <li>[habilidade]</li>
-        <li>[habilidade]</li>
-        <li>[habilidade]</li>
-      </ul>
     </div>
     <div class="content-right">
-      <h1 class="content-title">
-        Equipes
-      </h1>
-      <content-card class="card-content" />
+      <belbin-test />
     </div>
   </div>
 </template>
 
 <script>
-import ContentCard from '@/components/ContentCard.vue'
+import { mapGetters } from 'vuex'
+// import ContentCard from '@/components/ContentCard.vue'
+import BelbinTest from '@/components/BelbinTest'
 export default {
   layout: 'BaseLayout',
+  middleware: 'authenticated',
   components: {
-    ContentCard
+    // ContentCard
+    BelbinTest
+  },
+  computed: {
+    ...mapGetters({
+      fullName: 'user/fullName'
+    })
   }
 }
 </script>
@@ -48,7 +36,6 @@ export default {
 
 .container > .content-right
   flex: 3
-  justify-content: center
   align-items: center
-
+  margin-bottom: 60px
 </style>
