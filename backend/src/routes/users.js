@@ -6,6 +6,9 @@ const auth = require('../middlewares/auth')
 
 const usersController = new UsersController(User, AuthService)
 
+// BelbinTest
+router.post('/belbin', auth, (req, res) => usersController.belbinTest(req, res))
+
 router.post('/', (req, res) => usersController.create(req, res))
 router.get('/', auth, (req, res) => usersController.get(req, res))
 router.get('/:id', auth, (req, res) => usersController.getById(req, res))

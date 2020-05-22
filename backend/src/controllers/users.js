@@ -18,6 +18,14 @@ module.exports = class UsersController {
     }
   }
 
+  async belbinTest (req, res) {
+    const answers = req.body
+    // const { decoded: { _id: id } } = req
+    // const user = await this.User.findById(id)
+    const pl = answers.filter(answer => answer.group === 'PL')
+    console.log(pl)
+  }
+
   async get (req, res) {
     try {
       const users = await this.User.find({})

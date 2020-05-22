@@ -5,7 +5,8 @@ const schema = new Schema({
     type: String
   },
   group: {
-    type: Number
+    type: String,
+    enum: ['PL', 'RI', 'CO', 'SH', 'ME', 'TW', 'IM', 'CF', 'SP', 'DR']
   }
 })
 
