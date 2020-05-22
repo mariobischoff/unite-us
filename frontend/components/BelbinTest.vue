@@ -40,6 +40,7 @@
         v-show="step === 1"
         color="primary"
         depressed
+        @click="submitAnswers"
       >
         Enviar Teste
       </v-btn>
@@ -59,7 +60,7 @@ export default {
   },
   computed: {
     questionsByGroup () {
-      return this.questions.filter(question => question.group === this.step)
+      return this.questions.slice(this.step * 10, (this.step * 10) + 10)
     },
     maxValue () {
       return id => 10 - this.questionsByGroup
@@ -81,6 +82,15 @@ export default {
           value: 0
         }
       })
+    },
+    async submitAnswers () {
+      const answers = this.questions.map(function (question) {
+        return {
+          group: question.group,
+          value: question.value
+        }
+      })
+      await this.$axios.post('users/belbin', answers)
     }
   }
 }
