@@ -38,7 +38,6 @@ $text-body: #484747;
   display: flex;
   flex-direction: row;
   padding: 2%;
-  min-height: 100%;
 }
 
 .content-left {
@@ -71,4 +70,5 @@ $text-body: #484747;
   height: 200px;
   border-radius: 0 0 0 40px;
   padding: 0;
+  margin: 20px 0;
 }
