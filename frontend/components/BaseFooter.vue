@@ -19,7 +19,6 @@ export default {
 <style lang="sass" scoped>
 
 #footer
-  position: relative
   width: 100%
   bottom: 0
   flex: 1
@@ -28,12 +27,14 @@ export default {
   flex-direction: row
   justify-content: space-between
   align-items: center
-  #supporters
+
+#footer > #supporters
     display: flex
     align-items: center
-    p
-      margin: 0px
+#footer > #supporters > p
+  margin: 0px
 
 p
   color: #fff
+
 </style>
