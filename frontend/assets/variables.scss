@@ -10,8 +10,8 @@ $text-subtitle: #363535;
 $text-title: #1f1e1e;
 
 .button-accept {
-  min-width: 100px;
   height: 30px;
+  padding: 0 10px;
   font-size: 15px;
   background-color: $accent;
   color: $secondary;

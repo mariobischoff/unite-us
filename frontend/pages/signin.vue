@@ -27,10 +27,10 @@
         Esqueceu sua senha ?
       </v-btn>
       <div class="buttons">
-        <v-btn class="buttom-accept" text large @click="authenticate">
+        <v-btn class="button-accept" text large @click="authenticate">
           Entrar
         </v-btn>
-        <v-btn class="buttom-any" text large to="/">
+        <v-btn class="button-any" text large to="/">
           Cancelar
         </v-btn>
       </div>

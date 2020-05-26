@@ -32,6 +32,12 @@
           >
             Perfil
           </nuxt-link>
+          <nuxt-link
+            to="/signupteam"
+            exact-active-class="active-link"
+          >
+            Cadastrar Equipe
+          </nuxt-link>
         </template>
       </div>
     </nav>

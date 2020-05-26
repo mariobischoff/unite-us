@@ -62,10 +62,10 @@
         />
       </div>
       <div class="buttons">
-        <v-btn class="buttom-accept" text large @click="create()">
+        <v-btn class="button-accept" text large @click="create()">
           Cadastrar
         </v-btn>
-        <v-btn class="buttom-any" text large to="/">
+        <v-btn class="button-any" text large to="/">
           Cancelar
         </v-btn>
       </div>
