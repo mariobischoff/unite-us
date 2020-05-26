@@ -90,7 +90,7 @@ export default {
           value: question.value
         }
       })
-      await this.$axios.post('users/belbin', answers)
+      await this.$axios.post('users/belbin/', answers)
     }
   }
 }

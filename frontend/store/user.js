@@ -40,7 +40,7 @@ export const actions = {
   async register ({ commit }, payload) {
     try {
       commit('SET_ERROR', null)
-      await this.$axios.post('/user', payload)
+      await this.$axios.post('/users', payload)
     } catch (error) {
       commit('SET_ERROR', error.message)
     }
