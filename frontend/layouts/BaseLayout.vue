@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <base-header :signin="dialog" />
+    <base-header />
     <v-content>
       <v-container>
         <nuxt />
@@ -21,7 +21,6 @@ export default {
   },
   data () {
     return {
-      dialog: false
     }
   }
 }
