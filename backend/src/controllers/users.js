@@ -1,5 +1,5 @@
 module.exports = class UsersController {
-  constructor (User, AuthService) {
+  constructor (User, AuthService, BelbinService) {
     this.User = User
     this.AuthService = AuthService
   }
@@ -16,14 +16,6 @@ module.exports = class UsersController {
         res.status(422).send(err.message)
       }
     }
-  }
-
-  async belbinTest (req, res) {
-    const answers = req.body
-    // const { decoded: { _id: id } } = req
-    // const user = await this.User.findById(id)
-    const pl = answers.filter(answer => answer.group === 'PL')
-    console.log(pl)
   }
 
   async get (req, res) {
@@ -88,5 +80,42 @@ module.exports = class UsersController {
     } catch (error) {
       return res.send(error)
     }
+  }
+
+  async belbinTest (req, res) {
+    const answers = req.body
+    const { decoded: { _id: id } } = req
+
+    const result = this._belbinCalculator(answers)
+
+    try {
+      const user = await this.User.findById(id)
+      user.test = result
+      await user.save()
+      return res.sendStatus(201)
+    } catch (err) {
+      return res.status(400).send(err.message)
+    }
+  }
+
+  _belbinCalculator (answers) {
+    const test = {
+      PL: 0,
+      RI: 0,
+      CO: 0,
+      SH: 0,
+      ME: 0,
+      TW: 0,
+      IM: 0,
+      CF: 0,
+      SP: 0
+    }
+    answers.forEach((answer) => {
+      test[answer.group] += answer.value
+    })
+    Object.keys(test).forEach((group) => {
+      test[group] = ((test[group] / 70) * 100).toFixed(2)
+    })
+    return test
   }
 }

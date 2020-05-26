@@ -10,6 +10,9 @@ const schema = new Schema({
   password: {
     type: String
   },
+  test: {
+    type: Object
+  },
   role: {
     type: String,
     default: 'common'
