@@ -1,6 +1,10 @@
 <template>
   <v-card width="700px">
     <v-window v-model="step">
+      <h1 class="content-title">
+        Teste de análise de perfil
+      </h1>
+      <v-divider />
       <v-window-item :value="0">
         <question
           v-for="(question, index) in questionsByGroup"
@@ -20,30 +24,32 @@
       </v-window-item>
     </v-window>
     <v-card-actions>
-      <v-btn
+      <button
+        class="button-any"
         :disabled="step === 0"
         text
         @click="step--"
       >
         Voltar
-      </v-btn>
+      </button>
       <v-spacer />
-      <v-btn
+      <button
         v-show="step !== 1"
-        color="primary"
+        class="button-accept"
         depressed
         @click="step++"
       >
         Proximo
-      </v-btn>
-      <v-btn
+      </button>
+      <button
         v-show="step === 1"
+        class="button-accept"
         color="primary"
         depressed
         @click="submitAnswers"
       >
         Enviar Teste
-      </v-btn>
+      </button>
     </v-card-actions>
   </v-card>
 </template>
