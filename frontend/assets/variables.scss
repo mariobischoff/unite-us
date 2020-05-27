@@ -45,6 +45,7 @@ $text-title: #1f1e1e;
 .text-body {
   font-size: 20px;
   color: $text-body;
+  text-align: justify;
 }
 
 .container {
@@ -57,14 +58,14 @@ $text-title: #1f1e1e;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
 }
 
 .content-right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  align-items: flex-end;
 }
 
 .form-inputs {

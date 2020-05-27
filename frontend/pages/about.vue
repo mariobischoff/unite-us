@@ -29,15 +29,15 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#container > #content-left
+.container > .content-left
   flex: 2
 
-#container > #content-right
+.container > .content-right
   flex: 1
   justify-content: top
   align-items: flex-end
   padding: 5%
 
-#container > #content-right > img
+.container > .content-right > img
   height: 200px
 </style>
