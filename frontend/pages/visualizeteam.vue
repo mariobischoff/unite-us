@@ -22,6 +22,11 @@
         Equipe
       </h1>
       <content-card class="card-content" />
+      <content-card class="card-content" />
+      <content-card class="card-content" />
+      <content-card class="card-content" />
+      <content-card class="card-content" />
+      <content-card class="card-content" />
     </div>
   </div>
 </template>
