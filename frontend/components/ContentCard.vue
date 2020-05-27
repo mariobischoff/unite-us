@@ -61,6 +61,7 @@ export default {
   flex: 2
   display: flex
   flex-direction: row
+  align-items: flex-start
   justify-content: space-around
   padding-top: 2%
 
