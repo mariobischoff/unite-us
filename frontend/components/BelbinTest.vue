@@ -5,16 +5,11 @@
         Teste de análise de perfil
       </h1>
       <v-divider />
-      <v-window-item :value="0">
-        <question
-          v-for="(question, index) in questionsByGroup"
-          :key="question.text"
-          :question="questionsByGroup[index]"
-          :max="maxValue(question.id)"
-        />
-      </v-window-item>
-
-      <v-window-item :value="1">
+      <v-window-item
+        v-for="i in 6"
+        :key="i"
+        :value="i"
+      >
         <question
           v-for="(question, index) in questionsByGroup"
           :key="question.text"
@@ -34,21 +29,22 @@
       </button>
       <v-spacer />
       <button
-        v-show="step !== 1"
-        class="button-accept"
-        depressed
-        @click="step++"
-      >
-        Proximo
-      </button>
-      <button
-        v-show="step === 1"
+        v-if="step === 6"
+        v-show="step === 6"
         class="button-accept"
         color="primary"
         depressed
         @click="submitAnswers"
       >
         Enviar Teste
+      </button>
+      <button
+        v-else
+        class="button-accept"
+        depressed
+        @click="step++"
+      >
+        Proximo
       </button>
     </v-card-actions>
   </v-card>
