@@ -2,14 +2,18 @@ const { Schema, model } = require('mongoose')
 
 const schema = new Schema({
   name: {
-    type: String
+    type: String,
+    required: true
   },
   goal: {
-    type: String
+    type: String,
+    required: true
+
   },
   workAt: {
     type: String,
-    enum: ['remoto', 'local', 'misto']
+    required: true,
+    enum: ['remoto', 'local', 'remoto/local']
   },
   leader: {
     type: Schema.Types.ObjectId,

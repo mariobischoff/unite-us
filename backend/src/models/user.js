@@ -16,6 +16,9 @@ const schema = new Schema({
   },
   fullName: {
     type: String
+  },
+  belbinTest: {
+    type: Object
   }
 })
 
