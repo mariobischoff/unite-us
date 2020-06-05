@@ -4,7 +4,7 @@
     <v-slider
       v-model="question.value"
       :color="color"
-      track-color="#952597"
+      track-color="#cdd1ce"
       min="0"
       :max="max"
     />
@@ -26,11 +26,12 @@ export default {
   },
   computed: {
     color () {
-      if (this.answer > 9) { return 'red' }
-      if (this.answer > 6) { return 'orange' }
-      if (this.answer > 4) { return 'green' }
-      if (this.answer > 2) { return 'primary' }
-      return 'primary'
+      if (this.question.value >= 1 && this.question.value < 3) { return '#b4d1bb' }
+      if (this.question.value >= 3 && this.question.value < 5) { return '#87c795' }
+      if (this.question.value >= 5 && this.question.value < 7) { return '#52cc6c' }
+      if (this.question.value >= 7 && this.question.value < 9) { return '#32cf54' }
+      if (this.question.value >= 9 && this.question.value < 11) { return '#1cd443' }
+      return '#cdd1ce'
     }
   }
 }

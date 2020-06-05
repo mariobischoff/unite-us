@@ -20,8 +20,10 @@
           Serviços
         </h1>
         <p class="text-body">
-          <b>Talent Contact Acquisition:</b> O Talent Contact Acquisition é especialista em avaliar as necessidades de recrutamento de sua empresa, localizar os melhores profissionais de recrutamento, formar equipes de aquisição de talentos de alto desempenho e criar estratégias e processos de recrutamento eficazes.<br>Vamos posicionar sua organização para competir com sucesso por talentos de alto nível em um mercado hipercompetitivo.<br><b>&nbsp;&nbsp;&nbsp;Otimização de vaga: </b> Para empresas que os RHs não têm pessoas técnicas, sempre é interessante ter alguém próximo para auxiliar no levantamento de requisitos da vaga e na montagem do perfil do profissional. Com este serviço, pretendemos otimizar ao máximo o perfil da vaga para poder encontrar a pessoa certa para a empresa
-
+          <b>
+            Talent Contact Acquisition:
+          </b>
+          O Talent Contact Acquisition é especialista em avaliar as necessidades de recrutamento de sua empresa, localizar os melhores profissionais de recrutamento, formar equipes de aquisição de talentos de alto desempenho e criar estratégias e processos de recrutamento eficazes.<br>Vamos posicionar sua organização para competir com sucesso por talentos de alto nível em um mercado hipercompetitivo.<br><b>&nbsp;&nbsp;&nbsp;Otimização de vaga: </b> Para empresas que os RHs não têm pessoas técnicas, sempre é interessante ter alguém próximo para auxiliar no levantamento de requisitos da vaga e na montagem do perfil do profissional. Com este serviço, pretendemos otimizar ao máximo o perfil da vaga para poder encontrar a pessoa certa para a empresa
         </p>
       </div>
       <div class="content-right">
