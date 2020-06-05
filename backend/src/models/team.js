@@ -4,6 +4,13 @@ const schema = new Schema({
   name: {
     type: String
   },
+  goal: {
+    type: String
+  },
+  workAt: {
+    type: String,
+    enum: ['remoto', 'local', 'misto']
+  },
   leader: {
     type: Schema.Types.ObjectId,
     ref: 'User'
