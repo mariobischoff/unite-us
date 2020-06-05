@@ -28,10 +28,6 @@ export const actions = {
     }
   },
   async createTeam ({ commit }, payload) {
-    try {
-      await this.$axios.post('teams', payload)
-    } catch (error) {
-      commit('SET_ERROR', error.message)
-    }
+    await this.$axios.post('teams', payload)
   }
 }

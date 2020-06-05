@@ -75,10 +75,11 @@ export default {
         .then(() => {
           this.$router.push({ name: 'perfil' })
         }).catch((error) => {
-          this.$notify({
-            text: error,
-            type: error.type
-          })
+          alert(error.message)
+          // this.$notify({
+          //   text: error.message,
+          //   type: 'error'
+          // })
         })
     }
   }
