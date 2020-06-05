@@ -93,7 +93,7 @@ module.exports = class UsersController {
         fullName: user.fullName,
         role: user.role
       })
-      return res.send({ token, name: user.fullName })
+      return res.send({ token, user })
     } catch (error) {
       return res.send(error)
     }

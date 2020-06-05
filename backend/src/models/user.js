@@ -10,9 +10,20 @@ const schema = new Schema({
   password: {
     type: String
   },
-  role: {
+  vip: {
+    type: Boolean,
+    default: false
+  },
+  city: {
+    type: String
+  },
+  availability: {
     type: String,
-    default: 'common'
+    enum: ['remoto', 'local', 'remoto/local']
+  },
+  pretension: {
+    type: Array,
+    default: [0, 100000]
   },
   fullName: {
     type: String
@@ -44,8 +55,12 @@ schema.methods.comparePassword = async function (candidatePassword) {
 schema.set('toJSON', {
   transform: (doc, ret) => ({
     _id: ret._id,
+    fullName: ret.fullName,
+    city: ret.city,
+    pretension: ret.pretension,
     email: ret.email,
-    role: ret.role
+    vip: ret.vip,
+    belbinTest: ret.belbinTest
   })
 })
 
