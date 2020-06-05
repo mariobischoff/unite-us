@@ -4,7 +4,9 @@ module.exports = class TeamController {
   }
 
   async create (req, res) {
+    const { _id: id } = req.decoded
     const team = this.Team(req.body)
+    team.leader = String(id)
     try {
       await team.save()
       res.sendStatus(201)

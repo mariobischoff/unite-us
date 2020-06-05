@@ -28,7 +28,7 @@
         />
       </div>
       <div class="buttons">
-        <v-btn class="button-accept" text large @click="create()">
+        <v-btn class="button-accept" text large @click="postTeam">
           Cadastrar Equipe
         </v-btn>
         <v-btn class="button-any" text large to="/">
@@ -49,6 +49,11 @@ export default {
         objective: '',
         wayWork: ''
       }
+    }
+  },
+  methods: {
+    postTeam () {
+
     }
   }
 }
