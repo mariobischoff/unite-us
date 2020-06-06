@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',
@@ -31,20 +31,7 @@ export default {
   async asyncData ({ $axios }) {
     const teams = await $axios.$get('/teams')
     return { teams }
-  },
-  mounted () {
-    this.fetch()
-  },
-  methods: {
-    ...mapActions({
-      fetch: 'team/fetchTeams'
-    })
   }
-  // data () {
-  //   return {
-  //     teams: []
-  //   }
-  // }
 }
 </script>
 

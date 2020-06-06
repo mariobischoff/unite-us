@@ -48,8 +48,8 @@ export default {
     return {
       showPassword: false,
       user: {
-        email: '',
-        password: ''
+        email: 'mario@test.com',
+        password: '123123'
       }
     }
   },

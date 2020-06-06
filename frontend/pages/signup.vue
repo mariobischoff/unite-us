@@ -80,42 +80,11 @@ export default {
   data () {
     return {
       showPassword: false,
-      // selectAvailability: [
-      //   'Home Office',
-      //   'Presencial',
-      //   'Misto'
-      // ],
-      // selectExperise: [
-      //   'Design',
-      //   'Desenvolvedor',
-      //   'Administrador'
-      // ],
-      // selectGraduation: [
-      //   'Tecnólogo',
-      //   'Bacharel',
-      //   'Licenciatura',
-      //   'Mestrado',
-      //   'Doutorado',
-      //   'MBA'
-      // ],
-      // selectSkills: [
-      //   'Photoshop',
-      //   'VSCode',
-      //   'HTML',
-      //   'Illustrator'
-      // ],
-      // date: new Date().toISOString().substr(0, 10),
-      // displayDialog: false,
       user: {
         fullName: '',
-        // birthOfDay: '',
         email: '',
         password: '',
         repassword: ''
-        // availability: '',
-        // expertise: '',
-        // graduation: '',
-        // skills: []
       }
     }
   },

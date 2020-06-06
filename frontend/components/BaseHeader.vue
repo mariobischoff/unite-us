@@ -14,7 +14,7 @@
           {{ path.name }}
         </nuxt-link>
 
-        <template v-if="!isAuth">
+        <template v-if="!user">
           <nuxt-link
             v-for="authPath in auth"
             :key="authPath.path"
@@ -65,8 +65,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isAuth: 'user/isAuth',
-      fullName: 'user/fullName'
+      user: 'user/getUser'
     })
   }
 }

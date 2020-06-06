@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <div class="content-left">
-      <h1 class="text-title">
-        {{ fullName }}
-      </h1>
-      <p class="text-body">
-        email
+      <p class="title">
+        Nome Completo
       </p>
-      <p class="text-body">
-        idade
+      <p class="body-1">
+        {{ user.fullName }}
       </p>
-      <p class="text-body">
-        endereço
+      <p class="body-1">
+        {{ user.email }}
+      </p>
+      <p class="body-1">
+        {{ user.city }}
       </p>
       <h2 class="text-subtitle">
         Especialidade
@@ -62,31 +62,41 @@
       </div>
     </div>
     <div class="content-right">
-      <belbin-test />
+      <belbin-test v-if="!user.belbinTest" />
+      <div>
+        {{ user.belbinTest }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import ContentCard from '@/components/ContentCard.vue'
 import BelbinTest from '@/components/BelbinTest'
 export default {
   layout: 'BaseLayout',
-  middleware: 'authenticated',
+  // middleware: 'authenticated',
   components: {
-    // ContentCard
     BelbinTest
   },
   computed: {
     ...mapGetters({
-      fullName: 'user/fullName'
+      user: 'user/getUser'
     })
   }
 }
 </script>
 
 <style lang="sass" scoped>
+
+p
+  margin: 0
+  margin-bottom: 8px
+
+.container
+  display: flex
+  padding: 0
+  padding-top: 10px
 
 .container > .content-left
   flex: 1

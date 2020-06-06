@@ -10,7 +10,6 @@ export default function ({ store, redirect, $axios }) {
     return redirect('/signin')
   } else {
     $axios.setToken(token)
-    store.commit('user/SET_AUTH', true)
-    store.commit('user/SET_NAME', decoded.fullName)
+    store.dispatch('user/fetchUser', decoded.id)
   }
 }
