@@ -10,7 +10,7 @@ const usersController = new UsersController(User, AuthService)
 router.post('/belbin', auth, (req, res) => usersController.belbinTest(req, res))
 
 router.post('/', (req, res) => usersController.create(req, res))
-router.get('/', auth, (req, res) => usersController.get(req, res))
+router.get('/', (req, res) => usersController.get(req, res))
 router.get('/:id', auth, (req, res) => usersController.getById(req, res))
 router.put('/:id', auth, (req, res) => usersController.update(req, res))
 router.delete('/:id', auth, (req, res) => usersController.remove(req, res))
