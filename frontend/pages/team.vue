@@ -24,7 +24,6 @@
 import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',
-  middleware: 'authenticated',
   components: {
     ContentCard
   },
