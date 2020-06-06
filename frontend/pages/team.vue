@@ -32,13 +32,13 @@ export default {
     const teams = await $axios.$get('/teams')
     return { teams }
   },
+  mounted () {
+    this.fetch()
+  },
   methods: {
     ...mapActions({
       fetch: 'team/fetchTeams'
     })
-  },
-  mounted () {
-    this.fetch()
   }
   // data () {
   //   return {
