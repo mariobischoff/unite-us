@@ -89,11 +89,9 @@ module.exports = class UsersController {
     }
     try {
       const token = this.AuthService.generateToken({
-        _id: user._id,
-        fullName: user.fullName,
-        role: user.role
+        id: user._id
       })
-      return res.send({ token, user })
+      return res.send({ token, id: user._id })
     } catch (error) {
       return res.send(error)
     }
