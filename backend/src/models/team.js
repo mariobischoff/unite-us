@@ -8,7 +8,6 @@ const schema = new Schema({
   goal: {
     type: String,
     required: true
-
   },
   workAt: {
     type: String,
@@ -17,7 +16,11 @@ const schema = new Schema({
   },
   leader: {
     type: Schema.Types.ObjectId,
+    required: true,
     ref: 'User'
+  },
+  members: {
+    type: Array
   }
 })
 
