@@ -1,59 +1,58 @@
 <template>
   <div class="container">
     <div class="content-left">
-      <p class="title">
-        Nome Completo
+      <p class="text-title">
+        {{ user.name }}
       </p>
-      <p class="body-1">
-        {{ user.fullName }}
-      </p>
-      <p class="body-1">
+      <h2 class="text-subtitle">
+        Informações Básicas
+      </h2>
+      <p class="text-body">
         {{ user.email }}
       </p>
-      <p class="body-1">
+      <p class="text-body">
         {{ user.city }}
       </p>
       <h2 class="text-subtitle">
         Especialidade
       </h2>
       <p class="text-body">
-        especialidade
+        {{ user.expertise }}
       </p>
       <h2 class="text-subtitle">
         Disponibilidade
       </h2>
       <p class="text-body">
-        disponibilidade
+        {{ user.workAt }}
       </p>
       <h2 class="text-subtitle">
         Pretenção Salarial
       </h2>
       <p class="text-body">
-        pret. salarial
+        de
+        <span class="text-markup">
+          R${{ user.pretension[0] }}
+        </span>
+        a
+        <span class="text-markup">
+          R${{ user.pretension[1] }}
+        </span>
       </p>
       <h2 class="text-subtitle">
         Última Formação Academica
       </h2>
       <p class="text-body">
-        formação academica
+        {{ user.lastGraduation }}
       </p>
       <h2 class="text-subtitle">
         Habilidades
       </h2>
-      <p class="text-body">
-        habilidades 1
-      </p>
-      <p class="text-body">
-        habilidades 2
-      </p>
-      <p class="text-body">
-        habilidades 3
-      </p>
-      <p class="text-body">
-        habilidades 4
-      </p>
-      <p class="text-body">
-        habilidades 5
+      <p
+        v-for="skill in user.skills"
+        :key="skill.id"
+        class="text-body"
+      >
+        {{ skill }}
       </p>
       <div class="content-right">
         <button class="button-accept">

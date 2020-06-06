@@ -3,28 +3,43 @@
     <div class="content-left">
       <img src="~/assets/pictures/photo.jpg" alt="image">
       <div>
-        <h1>Name</h1>
-        <p>Expertise</p>
+        <h1>{{ contents.name }}</h1>
+        <p v-if=" typeContents === 'User' ">
+          {{ contents.expertise }}
+        </p>
+        <p v-else>
+          {{ contents.numberMembers }}
+        </p>
       </div>
     </div>
     <div class="content-right">
-      <div>
+      <div v-if=" typeContents === 'User' ">
         <h1 class="content-title">
           Habilidades
         </h1>
         <ul class="text-body">
-          <li>Photoshop</li>
-          <li>Photoshop</li>
-          <li>Photoshop</li>
-          <li>Photoshop</li>
+          <li
+            v-for="skill in contents.skills"
+            :key="skill.id"
+          >
+            {{ skill }}
+          </li>
         </ul>
+      </div>
+      <div v-else>
+        <h1 class="content-title">
+          Objetivo
+        </h1>
+        <p class="text-body">
+          {{ contents.goal }}
+        </p>
       </div>
       <div>
         <h1 class="content-title">
           Forma de Trabalho
         </h1>
         <p class="text-body">
-          Home Office
+          {{ contents.workAt }}
         </p>
       </div>
     </div>
@@ -33,6 +48,16 @@
 
 <script>
 export default {
+  props: {
+    typeContents: {
+      type: String,
+      default: null
+    },
+    contents: {
+      type: Object,
+      default: null
+    }
+  }
 }
 </script>
 
@@ -51,7 +76,7 @@ export default {
   padding: 3%
 
 .container > .content-left > div > h1
-  font-size: 150%
+  font-size: 20px
 
 .container > .content-left > div > p
   font-size: 90%

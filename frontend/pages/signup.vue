@@ -9,7 +9,7 @@
       </div>
       <div class="inputs">
         <v-text-field
-          v-model="user.fullName"
+          v-model="user.name"
           class="input-primary"
           label="Nome completo"
           type="text"
@@ -81,7 +81,7 @@ export default {
     return {
       showPassword: false,
       user: {
-        fullName: '',
+        name: '',
         email: '',
         password: '',
         repassword: ''

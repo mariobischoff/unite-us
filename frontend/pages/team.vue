@@ -1,26 +1,23 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="content-left">
-        <h1 class="content-title">
-          Equipes
-        </h1>
-      </div>
-      <div
-        class="content-right"
-      >
-        <content-card
-          v-for="team in teams"
-          :key="team._id"
-          class="card"
-        />
-      </div>
+  <div class="container" data-app>
+    <div class="content-left">
+      <h1 class="content-title">
+        Equipes
+      </h1>
+    </div>
+    <div class="content-right">
+      <content-card
+        v-for="team in teams"
+        :key="team.id"
+        class="card-content"
+        type-contents="Team"
+        :contents="team"
+      />
     </div>
   </div>
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
 import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',

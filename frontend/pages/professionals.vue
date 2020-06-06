@@ -6,7 +6,13 @@
       </h1>
     </div>
     <div class="content-right">
-      <content-card v-for="user in users" :key="user.id" class="card-content" />
+      <content-card
+        v-for="user in users"
+        :key="user.id"
+        class="card-content"
+        type-contents="User"
+        :contents="user"
+      />
     </div>
   </div>
 </template>
