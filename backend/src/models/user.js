@@ -2,34 +2,50 @@ const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const schema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    default: 'Empty'
+  },
   email: {
     type: String,
     required: true,
     unique: true
   },
   password: {
-    type: String
+    type: String,
+    required: true
+  },
+  expertise: {
+    type: String,
+    default: 'Empty'
+  },
+  workAt: {
+    type: String,
+    default: 'remote/local',
+    enum: ['remote', 'local', 'remote/local']
+  },
+  pretension: {
+    type: Array,
+    default: [0, 1000]
+  },
+  lastGraduation: {
+    type: String,
+    default: 'Empty'
+  },
+  skills: {
+    type: Array,
+    default: []
+  },
+  belbinTest: {
+    type: Object
   },
   vip: {
     type: Boolean,
     default: false
-  },
-  city: {
-    type: String
-  },
-  availability: {
-    type: String,
-    enum: ['remoto', 'local', 'remoto/local']
-  },
-  pretension: {
-    type: Array,
-    default: [0, 100000]
-  },
-  fullName: {
-    type: String
-  },
-  belbinTest: {
-    type: Object
   }
 })
 
