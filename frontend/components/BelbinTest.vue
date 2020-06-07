@@ -4,6 +4,9 @@
       <h1 class="content-title">
         Teste de análise de perfil
       </h1>
+      <b class="text-body">
+        Distribua <span class="content-title">{{ maxValue() }}</span> pontos nas peguntas
+      </b>
       <v-divider />
       <v-window-item
         v-for="i in 6"
@@ -99,6 +102,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
 .v-card
   padding: 50px
+
+.text-body > .content-title
+  font-size: 20px
+
+.v-divider
+  margin: 10px 30px 10px 30px
+
 </style>

@@ -3,30 +3,35 @@
     <div class="content-left">
       <h1 class="text-title">
         {{ user.name }}
-        <img v-if="user.vip === true" src="@/assets/icons/vip.svg" alt="vip" id="icon-vip">
+        <img
+          v-if="user.vip === true"
+          id="icon-vip"
+          src="@/assets/icons/vip.svg"
+          alt="vip"
+        >
       </h1>
-      <p class="text-body">
+      <span class="text-body">
         {{ user.email }}
-      </p>
-      <p class="text-body">
+      </span>
+      <span class="text-body">
         {{ user.city }}
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Especialidade
       </h2>
-      <p class="text-body">
+      <span class="text-body">
         {{ user.expertise }}
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Disponibilidade
       </h2>
-      <p class="text-body">
+      <span class="text-body">
         {{ user.workAt }}
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Pretenção Salarial
       </h2>
-      <p class="text-body">
+      <span class="text-body">
         de
         <span class="text-markup">
           R${{ user.pretension[0] }}
@@ -35,23 +40,23 @@
         <span class="text-markup">
           R${{ user.pretension[1] }}
         </span>
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Última Formação Academica
       </h2>
-      <p class="text-body">
+      <span class="text-body">
         {{ user.lastGraduation }}
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Habilidades
       </h2>
-      <p
+      <span
         v-for="skill in user.skills"
         :key="skill.id"
         class="text-body"
       >
         {{ skill }}
-      </p>
+      </span>
       <div class="content-right">
         <button class="button-accept">
           Alterar Perfil
@@ -97,6 +102,9 @@ p
 
 .container > .content-left
   flex: 1
+
+.container > .content-left > .text-subtitle
+  margin-top: 15px
 
 .container > .content-left > h1 > #icon-vip
   height: 25px

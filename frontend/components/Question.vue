@@ -1,14 +1,17 @@
 <template>
   <div>
-    <span>{{ question.text }}</span>
+    <span class="text-body">{{ question.text }}</span>
     <v-slider
       v-model="question.value"
       :color="color"
       track-color="#cdd1ce"
       min="0"
       :max="max"
+      height="70"
+      :thumb-size="20"
+      thumb-label="always"
     />
-    <v-divider />
+    <v-divider/>
   </div>
 </template>
 
@@ -37,9 +40,9 @@ export default {
 }
 </script>
 
-<style>
-p {
-  margin: 0px
-}
+<style lang="sass" scoped>
+
+.v-divider
+  margin: 0 30px 10px 30px
 
 </style>
