@@ -1,12 +1,10 @@
 <template>
   <div class="container">
     <div class="content-left">
-      <p class="text-title">
+      <h1 class="text-title">
         {{ user.name }}
-      </p>
-      <h2 class="text-subtitle">
-        Informações Básicas
-      </h2>
+        <img v-if="user.vip === true" src="@/assets/icons/vip.svg" alt="vip" id="icon-vip">
+      </h1>
       <p class="text-body">
         {{ user.email }}
       </p>
@@ -99,6 +97,10 @@ p
 
 .container > .content-left
   flex: 1
+
+.container > .content-left > h1 > #icon-vip
+  height: 25px
+  margin-left: 20px
 
 .container > .content-left > .content-right
   justify-content: flex-end
