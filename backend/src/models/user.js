@@ -71,10 +71,14 @@ schema.methods.comparePassword = async function (candidatePassword) {
 schema.set('toJSON', {
   transform: (doc, ret) => ({
     _id: ret._id,
-    fullName: ret.fullName,
-    city: ret.city,
-    pretension: ret.pretension,
+    name: ret.name,
     email: ret.email,
+    city: ret.city,
+    expertise: ret.expertise,
+    workAt: ret.workAt,
+    pretension: ret.pretension,
+    lastGraduation: ret.lastGraduation,
+    skills: ret.skills,
     vip: ret.vip,
     belbinTest: ret.belbinTest
   })
