@@ -11,7 +11,7 @@
       :thumb-size="20"
       thumb-label="always"
     />
-    <v-divider/>
+    <v-divider />
   </div>
 </template>
 

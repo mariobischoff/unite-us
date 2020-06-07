@@ -57,7 +57,7 @@
       >
         {{ skill }}
       </span>
-      <div class="content-right">
+      <div id="edit-button">
         <button class="button-accept">
           Alterar Perfil
         </button>
@@ -102,6 +102,10 @@ p
 
 .container > .content-left
   flex: 1
+
+.container > .content-left > #edit-button
+  display: flex
+  justify-content: flex-end
 
 .container > .content-left > .text-subtitle
   margin-top: 15px
