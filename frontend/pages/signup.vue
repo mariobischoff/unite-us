@@ -14,32 +14,6 @@
           label="Nome completo"
           type="text"
         />
-        <!-- <v-dialog
-          ref="dialog"
-          v-model="displayDialog"
-          :return-value.sync="user.birthOfDay"
-          persistent
-          width="290px"
-        >
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              v-model="user.birthOfDay"
-              class="input-primary"
-              label="Data de nascimento"
-              readonly
-              v-on="on"
-            />
-          </template>
-          <v-date-picker v-model="user.birthOfDay" scrollable color="#952597">
-            <v-spacer />
-            <v-btn text color="#952597" @click="displayDialog = false">
-              Cancel
-            </v-btn>
-            <v-btn text color="#952597" @click="$refs.dialog.save(date)">
-              OK
-            </v-btn>
-          </v-date-picker>
-        </v-dialog> -->
         <v-text-field
           v-model="user.email"
           class="input-primary"
