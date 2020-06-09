@@ -9,6 +9,14 @@
           src="@/assets/icons/vip.svg"
           alt="vip"
         >
+        <v-btn
+          icon
+          color="red"
+          class="ml-6"
+          @click="handleLogout"
+        >
+          <v-icon>mdi-logout</v-icon>
+        </v-btn>
       </h1>
       <span class="text-body">
         {{ user.email }}
@@ -58,10 +66,14 @@
         {{ skill }}
       </span>
       <div id="edit-button">
-        <button class="button-accept">
-          Alterar Perfil
-        </button>
+        <v-btn rounded color="green" small @click="dialog = !dialog">
+          <v-icon color="white" class="mr-2">
+            mdi-cog
+          </v-icon>
+          <span style="color: white">Alterar Perfil</span>
+        </v-btn>
       </div>
+      <PerfilForm :dialog="dialog" :user="JSON.parse(JSON.stringify(user))" />
     </div>
     <div class="content-right">
       <belbin-test v-if="!user.belbinTest" />
@@ -73,18 +85,36 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import BelbinTest from '@/components/BelbinTest'
+import PerfilForm from '@/components/PerfilForm'
 export default {
   layout: 'BaseLayout',
   // middleware: 'authenticated',
   components: {
-    BelbinTest
+    BelbinTest,
+    PerfilForm
+  },
+  data () {
+    return {
+      dialog: false
+    }
   },
   computed: {
     ...mapGetters({
       user: 'user/getUser'
     })
+  },
+  methods: {
+    ...mapActions({
+      logout: 'user/logout'
+    }),
+    handleLogout () {
+      this.logout()
+        .then(() => {
+          this.$router.push({ name: 'index' })
+        })
+    }
   }
 }
 </script>
@@ -102,10 +132,12 @@ p
 
 .container > .content-left
   flex: 1
+  align-items: start
 
 .container > .content-left > #edit-button
   display: flex
-  justify-content: flex-end
+  width: 100%
+  justify-content: center
 
 .container > .content-left > .text-subtitle
   margin-top: 15px

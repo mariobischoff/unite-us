@@ -3,7 +3,7 @@
     <div class="content-left">
       <img src="~/assets/pictures/photo.jpg" alt="image">
       <div>
-        <h1>{{ contents.name }}</h1>
+        <h1>{{ contents.name | capitalize }}</h1>
         <p v-if=" typeContents === 'User' ">
           {{ contents.expertise }}
         </p>
@@ -20,7 +20,7 @@
         <ul class="text-body">
           <li
             v-for="skill in contents.skills"
-            :key="skill.id"
+            :key="skill"
           >
             {{ skill }}
           </li>
@@ -39,7 +39,7 @@
           Forma de Trabalho
         </h1>
         <p class="text-body">
-          {{ contents.workAt }}
+          {{ contents.workAt | capitalize }}
         </p>
       </div>
     </div>
@@ -48,6 +48,13 @@
 
 <script>
 export default {
+  filters: {
+    capitalize: (value) => {
+      if (!value) { return '' }
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },
   props: {
     typeContents: {
       type: String,
@@ -94,6 +101,10 @@ export default {
   font-size: 100%
 
 .container > .content-right > div > ul > li
+  padding-left: 8px
   font-size: 100%
+  border-radius: 6px
+  border-left: solid 2px $primary
   list-style: none
+  margin-bottom: 4px
 </style>

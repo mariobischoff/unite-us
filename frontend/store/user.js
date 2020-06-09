@@ -28,6 +28,10 @@ export const actions = {
     this.$axios.setToken(token)
     await dispatch('fetchUser', id)
   },
+  logout ({ commit }) {
+    localStorage.clear()
+    commit('SET_USER', null)
+  },
   async fetchUser ({ commit }, id) {
     if (id) {
       const [user] = await this.$axios.$get(`/users/${id}`)

@@ -25,7 +25,6 @@
           </nuxt-link>
         </template>
         <template v-else>
-          <!-- A API retornara o nome do usuário -->
           <nuxt-link
             to="/perfil"
             exact-active-class="active-link"
