@@ -3,23 +3,23 @@
     <div class="content-left">
       <img src="~/assets/pictures/photo.jpg" alt="image">
       <div>
-        <h1>{{ contents.name | capitalize }}</h1>
-        <p v-if=" typeContents === 'User' ">
-          {{ contents.expertise }}
+        <h1>{{ content.name | capitalize }}</h1>
+        <p v-if=" typeContent === 'User' ">
+          {{ content.expertise }}
         </p>
         <p v-else>
-          {{ contents.numberMembers }}
+          {{ content.members.leght }}
         </p>
       </div>
     </div>
     <div class="content-right">
-      <div v-if=" typeContents === 'User' ">
+      <div v-if=" typeContent === 'User' ">
         <h1 class="content-title">
           Habilidades
         </h1>
         <ul class="text-body">
           <li
-            v-for="skill in contents.skills"
+            v-for="skill in content.skills"
             :key="skill"
           >
             {{ skill }}
@@ -31,7 +31,7 @@
           Objetivo
         </h1>
         <p class="text-body">
-          {{ contents.goal }}
+          {{ content.goal }}
         </p>
       </div>
       <div>
@@ -39,7 +39,7 @@
           Forma de Trabalho
         </h1>
         <p class="text-body">
-          {{ contents.workAt | capitalize }}
+          {{ content.workAt | capitalize }}
         </p>
       </div>
     </div>
@@ -56,11 +56,11 @@ export default {
     }
   },
   props: {
-    typeContents: {
+    typeContent: {
       type: String,
       default: null
     },
-    contents: {
+    content: {
       type: Object,
       default: null
     }

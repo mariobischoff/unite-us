@@ -10,8 +10,8 @@
         v-for="user in users"
         :key="user.id"
         class="card-content"
-        type-contents="User"
-        :contents="user"
+        type-content="User"
+        :content="user"
       />
     </div>
   </div>

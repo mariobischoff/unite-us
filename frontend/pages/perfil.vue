@@ -9,14 +9,6 @@
           src="@/assets/icons/vip.svg"
           alt="vip"
         >
-        <v-btn
-          icon
-          color="red"
-          class="ml-6"
-          @click="handleLogout"
-        >
-          <v-icon>mdi-logout</v-icon>
-        </v-btn>
       </h1>
       <span class="text-body">
         {{ user.email }}
@@ -65,8 +57,8 @@
       >
         {{ skill }}
       </span>
-      <div id="edit-button">
-        <v-btn rounded color="green" small @click="dialog = !dialog">
+      <div id="box-edit-button">
+        <v-btn rounded color="#28D04D" small @click="dialog = !dialog">
           <v-icon color="white" class="mr-2">
             mdi-cog
           </v-icon>
@@ -85,7 +77,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import BelbinTest from '@/components/BelbinTest'
 import PerfilForm from '@/components/PerfilForm'
 export default {
@@ -104,20 +96,6 @@ export default {
     ...mapGetters({
       user: 'user/getUser'
     })
-  },
-  methods: {
-    ...mapActions({
-      logout: 'user/logout'
-    }),
-    handleLogout () {
-      this.logout()
-        .then(() => {
-          this.$router.push({ name: 'index' })
-        })
-    },
-    handleForm () {
-      this.dialog = !this.dialog
-    }
   }
 }
 </script>
@@ -137,10 +115,10 @@ p
   flex: 1
   align-items: start
 
-.container > .content-left > #edit-button
+.container > .content-left > #box-edit-button
   display: flex
   width: 100%
-  justify-content: center
+  justify-content: flex-end
 
 .container > .content-left > .text-subtitle
   margin-top: 15px

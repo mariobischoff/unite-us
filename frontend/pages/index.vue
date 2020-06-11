@@ -6,7 +6,11 @@
           Encontre aqui sua equipe ideal!
         </h1>
         <p class="text-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisi lectus, malesuada cursus faucibus quis, suscipit vitae tortor. In sapien libero, dapibus at lorem nec, dignissim pharetra risus. Suspendisse urna nisi, egestas at dui quis, aliquam dapibus magna. Nulla risus nunc, ornare at bibendum vehicula, tristique eu ex. Morbi ac fermentum nisi. Duis nec iaculis ante, vulputate pretium elit. Proin quis nibh et risus tincidunt lacinia a vel tellus. Nunc ac ex non ligula sodales pharetra. Nulla in dapibus magna, vitae euismod odio. In dignissim pretium lectus, ut tristique mauris viverra sed.
+          O grande desafio das grandes e pequenas empresas é o de encontrar pessoas adequadas, tanto para desempenhar seus deveres da forma mais eficiente quanto para atingir um resultado da melhor maneira possível, com o menor desperdício de tempo, esforço e recursos. Para alcançar tais objetivos é necessário ter uma equipe que esteja qualificada e que possua um entrosamento fluido, o que possibilita uma maior facilidade na obtenção da eficiência e eficácia em seus resultados. É nesse cenário que  a ideia de nosso projeto foi concebida, a fim de facilitar a criação de equipes de trabalho mais eficientes e eficazes possíveis, proporcionando assim uma melhor produtividade através de nosso método de afinidade. Aqui nos utilizamos do algoritimo de <a href="https://belbin.com" target="blank"> Belbin</a> para alcançar os melhores desejados.
+
+        </p>
+        <p class="text-body2">
+          <h1>Aqui nos pensamos por você e lhe enregamos melhores resultados</h1>
         </p>
       </div>
       <div class="content-right">
@@ -23,9 +27,14 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .container > .content-left
   flex: 2
+  width: 800px
+  background-color: #ffffff
+  margin: 0px auto 0px auto
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .5)
+  padding: 10px 10px 10px 10px
 
 .container > .content-right
   flex: 3
@@ -34,4 +43,9 @@ export default {
 
 .container > .content-right > img
   height: 400px
+  background-color: #ffffff
+  margin: 0px auto 0px auto
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .5)
+  padding: 10px 10px 10px 10px
+
 </style>

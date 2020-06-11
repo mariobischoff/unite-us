@@ -37,6 +37,9 @@
           >
             Cadastrar Equipe
           </nuxt-link>
+          <a href="#" @click="handleLogout()">
+            Sair
+          </a>
         </template>
       </div>
     </nav>
@@ -44,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BaseHeader',
@@ -66,6 +69,17 @@ export default {
     ...mapGetters({
       user: 'user/getUser'
     })
+  },
+  methods: {
+    ...mapActions({
+      logout: 'user/logout'
+    }),
+    handleLogout () {
+      this.logout()
+        .then(() => {
+          this.$router.push({ name: 'index' })
+        })
+    }
   }
 }
 </script>
