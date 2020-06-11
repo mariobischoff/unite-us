@@ -14,7 +14,7 @@
           {{ path.name }}
         </nuxt-link>
 
-        <template v-if="!isAuth">
+        <template v-if="!user">
           <nuxt-link
             v-for="authPath in auth"
             :key="authPath.path"
@@ -25,7 +25,6 @@
           </nuxt-link>
         </template>
         <template v-else>
-          <!-- A API retornara o nome do usuário -->
           <nuxt-link
             to="/perfil"
             exact-active-class="active-link"
@@ -38,6 +37,9 @@
           >
             Cadastrar Equipe
           </nuxt-link>
+          <a href="#" @click="handleLogout()">
+            Sair
+          </a>
         </template>
       </div>
     </nav>
@@ -45,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BaseHeader',
@@ -65,9 +67,19 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isAuth: 'user/isAuth',
-      fullName: 'user/fullName'
+      user: 'user/getUser'
     })
+  },
+  methods: {
+    ...mapActions({
+      logout: 'user/logout'
+    }),
+    handleLogout () {
+      this.logout()
+        .then(() => {
+          this.$router.push({ name: 'index' })
+        })
+    }
   }
 }
 </script>

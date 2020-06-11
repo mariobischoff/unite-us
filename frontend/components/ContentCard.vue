@@ -3,28 +3,43 @@
     <div class="content-left">
       <img src="~/assets/pictures/photo.jpg" alt="image">
       <div>
-        <h1>Name</h1>
-        <p>Expertise</p>
+        <h1>{{ content.name | capitalize }}</h1>
+        <p v-if=" typeContent === 'User' ">
+          {{ content.expertise }}
+        </p>
+        <p v-else>
+          {{ content.members.leght }}
+        </p>
       </div>
     </div>
     <div class="content-right">
-      <div>
+      <div v-if=" typeContent === 'User' ">
         <h1 class="content-title">
           Habilidades
         </h1>
         <ul class="text-body">
-          <li>Photoshop</li>
-          <li>Photoshop</li>
-          <li>Photoshop</li>
-          <li>Photoshop</li>
+          <li
+            v-for="skill in content.skills"
+            :key="skill"
+          >
+            {{ skill }}
+          </li>
         </ul>
+      </div>
+      <div v-else>
+        <h1 class="content-title">
+          Objetivo
+        </h1>
+        <p class="text-body">
+          {{ content.goal }}
+        </p>
       </div>
       <div>
         <h1 class="content-title">
           Forma de Trabalho
         </h1>
         <p class="text-body">
-          Home Office
+          {{ content.workAt | capitalize }}
         </p>
       </div>
     </div>
@@ -33,6 +48,23 @@
 
 <script>
 export default {
+  filters: {
+    capitalize: (value) => {
+      if (!value) { return '' }
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },
+  props: {
+    typeContent: {
+      type: String,
+      default: null
+    },
+    content: {
+      type: Object,
+      default: null
+    }
+  }
 }
 </script>
 
@@ -51,7 +83,7 @@ export default {
   padding: 3%
 
 .container > .content-left > div > h1
-  font-size: 150%
+  font-size: 20px
 
 .container > .content-left > div > p
   font-size: 90%
@@ -69,6 +101,10 @@ export default {
   font-size: 100%
 
 .container > .content-right > div > ul > li
+  padding-left: 8px
   font-size: 100%
+  border-radius: 6px
+  border-left: solid 2px $primary
   list-style: none
+  margin-bottom: 4px
 </style>

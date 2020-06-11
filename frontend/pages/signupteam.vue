@@ -15,20 +15,20 @@
           type="text"
         />
         <v-text-field
-          v-model="team.objective"
+          v-model="team.goal"
           class="input-primary"
           label="Objetivo"
           type="text"
         />
-        <v-text-field
-          v-model="team.wayWork"
+        <v-select
+          v-model="team.workAt"
           class="input-primary"
           label="Forma de trabalho"
-          type="text"
+          :items="workAtOptions"
         />
       </div>
       <div class="buttons">
-        <v-btn class="button-accept" text large @click="create()">
+        <v-btn class="button-accept" text large @click="postTeam">
           Cadastrar Equipe
         </v-btn>
         <v-btn class="button-any" text large to="/">
@@ -40,15 +40,47 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   layout: 'AuthLayout',
   data () {
     return {
+      workAtOptions: [
+        {
+          text: 'Remoto',
+          value: 'remoto'
+        },
+        {
+          text: 'Local',
+          value: 'local'
+        },
+        {
+          text: 'Remoto e Local',
+          value: 'remoto/local'
+        }
+      ],
       team: {
         name: '',
-        objective: '',
-        wayWork: ''
+        goal: '',
+        workAt: ''
       }
+    }
+  },
+  methods: {
+    ...mapActions({
+      createTeam: 'team/createTeam'
+    }),
+    postTeam () {
+      this.createTeam(this.team)
+        .then(() => {
+          this.$router.push({ name: 'perfil' })
+        }).catch((error) => {
+          alert(error.message)
+          // this.$notify({
+          //   text: error.message,
+          //   type: 'error'
+          // })
+        })
     }
   }
 }

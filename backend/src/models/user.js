@@ -2,20 +2,50 @@ const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const schema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    default: 'Empty'
+  },
   email: {
     type: String,
     required: true,
     unique: true
   },
   password: {
-    type: String
-  },
-  role: {
     type: String,
-    default: 'common'
+    required: true
   },
-  fullName: {
-    type: String
+  expertise: {
+    type: String,
+    default: 'Empty'
+  },
+  workAt: {
+    type: String,
+    default: 'remote/local',
+    enum: ['remote', 'local', 'remote/local']
+  },
+  pretension: {
+    type: Array,
+    default: [0, 1000]
+  },
+  lastGraduation: {
+    type: String,
+    default: 'Empty'
+  },
+  skills: {
+    type: Array,
+    default: []
+  },
+  belbinTest: {
+    type: Object
+  },
+  vip: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -41,8 +71,16 @@ schema.methods.comparePassword = async function (candidatePassword) {
 schema.set('toJSON', {
   transform: (doc, ret) => ({
     _id: ret._id,
+    name: ret.name,
     email: ret.email,
-    role: ret.role
+    city: ret.city,
+    expertise: ret.expertise,
+    workAt: ret.workAt,
+    pretension: ret.pretension,
+    lastGraduation: ret.lastGraduation,
+    skills: ret.skills,
+    vip: ret.vip,
+    belbinTest: ret.belbinTest
   })
 })
 

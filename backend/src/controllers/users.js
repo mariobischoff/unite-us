@@ -1,3 +1,5 @@
+const calculateBelbin = require('../utils/belbinTest')
+
 module.exports = class UsersController {
   constructor (User, AuthService) {
     this.User = User
@@ -19,11 +21,18 @@ module.exports = class UsersController {
   }
 
   async belbinTest (req, res) {
-    const answers = req.body
-    // const { decoded: { _id: id } } = req
-    // const user = await this.User.findById(id)
-    const pl = answers.filter(answer => answer.group === 'PL')
-    console.log(pl)
+    const data = req.body
+    const { decoded: { _id: id } } = req
+
+    const answers = calculateBelbin(data)
+
+    try {
+      const user = await this.User.findById(id)
+      user.belbinTest = answers
+      await user.save()
+    } catch (err) {
+      res.status(400).send(err.message)
+    }
   }
 
   async get (req, res) {
@@ -80,11 +89,9 @@ module.exports = class UsersController {
     }
     try {
       const token = this.AuthService.generateToken({
-        _id: user._id,
-        fullName: user.fullName,
-        role: user.role
+        id: user._id
       })
-      return res.send({ token, name: user.fullName })
+      return res.send({ token, id: user._id })
     } catch (error) {
       return res.send(error)
     }

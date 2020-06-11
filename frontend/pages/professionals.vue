@@ -6,7 +6,13 @@
       </h1>
     </div>
     <div class="content-right">
-      <content-card class="card-content" />
+      <content-card
+        v-for="user in users"
+        :key="user.id"
+        class="card-content"
+        type-content="User"
+        :content="user"
+      />
     </div>
   </div>
 </template>
@@ -17,6 +23,10 @@ export default {
   layout: 'BaseLayout',
   components: {
     ContentCard
+  },
+  async asyncData ({ $axios }) {
+    const users = await $axios.$get('/users')
+    return { users }
   }
 }
 </script>

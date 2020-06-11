@@ -48,8 +48,8 @@ export default {
     return {
       showPassword: false,
       user: {
-        email: '',
-        password: ''
+        email: 'bruxa.blair@test.com',
+        password: '123456'
       }
     }
   },
@@ -60,7 +60,7 @@ export default {
     authenticate () {
       this.login(this.user)
         .then(() => {
-          this.$router.push({ name: 'index' })
+          this.$router.push({ name: 'perfil' })
         })
         .catch(() => {
           this.$notify({

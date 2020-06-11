@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="content-left">
-        <h1 class="content-title">
-          Equipes
-        </h1>
-      </div>
-      <div
-        class="content-right"
-      >
-        <content-card
-          v-for="team in teams"
-          :key="team._id"
-          class="card"
-        />
-      </div>
+  <div class="container" data-app>
+    <div class="content-left">
+      <h1 class="content-title">
+        Equipes
+      </h1>
+    </div>
+    <div class="content-right">
+      <content-card
+        v-for="team in teams"
+        :key="team.id"
+        class="card-content"
+        type-content="Team"
+        :content="team"
+      />
     </div>
   </div>
 </template>
@@ -23,7 +21,6 @@
 import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',
-  middleware: 'authenticated',
   components: {
     ContentCard
   },
@@ -31,11 +28,6 @@ export default {
     const teams = await $axios.$get('/teams')
     return { teams }
   }
-  // data () {
-  //   return {
-  //     teams: []
-  //   }
-  // }
 }
 </script>
 

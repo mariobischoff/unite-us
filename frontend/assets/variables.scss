@@ -48,6 +48,10 @@ $text-title: #1f1e1e;
   text-align: justify;
 }
 
+.text-markup {
+  color: $accent;
+}
+
 .container {
   display: flex;
   flex-direction: row;
