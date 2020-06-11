@@ -1,28 +1,21 @@
 export const state = () => ({
-  user: null,
-  users: null
+  user: null
 })
 
 export const mutations = {
   SET_USER (state, user) {
     state.user = user
-  },
-  SET_USERS (state, users) {
-    state.users = users
   }
 }
 
 export const getters = {
   getUser (state) {
     return state.user
-  },
-  getUsers (state) {
-    return state.users
   }
 }
 
 export const actions = {
-  async login ({ dispatch, commit }, payload) {
+  async login ({ dispatch }, payload) {
     const { id, token } = await this.$axios.$post('/users/auth', payload)
     localStorage.setItem('token', token)
     this.$axios.setToken(token)
@@ -40,6 +33,10 @@ export const actions = {
       const users = await this.$axios.$get('/users')
       commit('SET_USERS', users)
     }
+  },
+  async update ({ commit, state, dispatch }, payload) {
+    await this.$axios.put(`/users/${state.user._id}`, payload)
+    await dispatch('fetchUser', state.user._id)
   },
   async register ({ commit }, payload) {
     await this.$axios.post('/users', payload)
