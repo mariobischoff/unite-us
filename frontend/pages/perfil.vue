@@ -65,7 +65,7 @@
           <span style="color: white">Alterar Perfil</span>
         </v-btn>
       </div>
-      <PerfilForm :dialog="dialog" :user="JSON.parse(JSON.stringify(user))" />
+      <PerfilForm :dialog="dialog" :user="JSON.parse(JSON.stringify(user))" @handleForm="handleForm" />
     </div>
     <div class="content-right">
       <belbin-test v-if="!user.belbinTest" />
@@ -96,6 +96,11 @@ export default {
     ...mapGetters({
       user: 'user/getUser'
     })
+  },
+  methods: {
+    handleForm () {
+      this.dialog = !this.dialog
+    }
   }
 }
 </script>
