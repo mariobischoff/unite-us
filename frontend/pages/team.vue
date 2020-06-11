@@ -10,8 +10,8 @@
         v-for="team in teams"
         :key="team.id"
         class="card-content"
-        type-contents="Team"
-        :contents="team"
+        type-content="Team"
+        :content="team"
       />
     </div>
   </div>

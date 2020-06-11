@@ -9,14 +9,6 @@
           src="@/assets/icons/vip.svg"
           alt="vip"
         >
-        <!-- <v-btn
-          icon
-          color="red"
-          class="ml-6"
-          @click="handleLogout"
-        >
-          <v-icon>mdi-logout</v-icon>
-        </v-btn> -->
       </h1>
       <span class="text-body">
         {{ user.email }}
