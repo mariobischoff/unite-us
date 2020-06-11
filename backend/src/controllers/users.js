@@ -58,10 +58,10 @@ module.exports = class UsersController {
 
   async update (req, res) {
     const body = req.body
+
     try {
       const user = await this.User.findById(req.params.id)
-      user.email = body.email
-      for (const key in Object.keys(body)) {
+      for (const key of Object.keys(body)) {
         user[key] = body[key]
       }
       await user.save()
