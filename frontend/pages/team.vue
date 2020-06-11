@@ -39,9 +39,14 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.container > .content-left
-  flex: 1
+<style lang="sass">
+.layout-auth
+  background-color: rgb(62, 153, 214)
+  background: radial-gradient(circle, $primary 70%, rgba(149,37,130,1) 100%)
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100
 
 .container > .content-right
   flex: 3
