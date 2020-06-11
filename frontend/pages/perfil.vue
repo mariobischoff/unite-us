@@ -96,6 +96,11 @@ export default {
     ...mapGetters({
       user: 'user/getUser'
     })
+  },
+  methods: {
+    handleForm () {
+      this.dialog = !this.dialog
+    }
   }
 }
 </script>
