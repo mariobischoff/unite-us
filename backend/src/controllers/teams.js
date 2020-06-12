@@ -4,9 +4,9 @@ module.exports = class TeamController {
   }
 
   async create (req, res) {
-    const { _id: id } = req.decoded
+    const { id } = req.decoded
     const team = this.Team(req.body)
-    team.leader = String(id)
+    team.leader = id
     try {
       await team.save()
       res.sendStatus(201)
@@ -24,12 +24,10 @@ module.exports = class TeamController {
     }
   }
 
-  async getById (req, res) {
-    const {
-      params: { id }
-    } = req
+  async getByUserId (req, res) {
+    const { decoded: { id } } = req
     try {
-      const team = await this.Team.find({ _id: id }).populate('leader')
+      const team = await this.Team.find({ leader: id }).populate('leader')
       res.send(team)
     } catch (err) {
       res.status(400).send(err.message)

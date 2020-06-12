@@ -22,25 +22,24 @@ module.exports = class UsersController {
 
   async belbinTest (req, res) {
     const data = req.body
-    const { decoded: { _id: id } } = req
-
+    const { decoded: { id } } = req
     const answers = calculateBelbin(data)
-
     try {
       const user = await this.User.findById(id)
       user.belbinTest = answers
       await user.save()
+      return res.sendStatus(200)
     } catch (err) {
-      res.status(400).send(err.message)
+      return res.status(400).send(err.message)
     }
   }
 
   async get (req, res) {
     try {
       const users = await this.User.find({})
-      res.send(users)
+      return res.send(users)
     } catch (err) {
-      res.status(400).send(err.message)
+      return res.status(400).send(err.message)
     }
   }
 

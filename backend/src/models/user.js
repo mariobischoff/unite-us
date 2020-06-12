@@ -25,8 +25,8 @@ const schema = new Schema({
   },
   workAt: {
     type: String,
-    default: 'remote/local',
-    enum: ['remote', 'local', 'remote/local']
+    default: 'remoto/local',
+    enum: ['remoto', 'local', 'remoto/local']
   },
   pretension: {
     type: Array,
