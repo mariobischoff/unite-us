@@ -7,10 +7,11 @@
         </h1>
         <p class="text-body">
           O grande desafio das grandes e pequenas empresas é o de encontrar pessoas adequadas, tanto para desempenhar seus deveres da forma mais eficiente quanto para atingir um resultado da melhor maneira possível, com o menor desperdício de tempo, esforço e recursos. Para alcançar tais objetivos é necessário ter uma equipe que esteja qualificada e que possua um entrosamento fluido, o que possibilita uma maior facilidade na obtenção da eficiência e eficácia em seus resultados. É nesse cenário que  a ideia de nosso projeto foi concebida, a fim de facilitar a criação de equipes de trabalho mais eficientes e eficazes possíveis, proporcionando assim uma melhor produtividade através de nosso método de afinidade. Aqui nos utilizamos do algoritimo de <a href="https://belbin.com" target="blank"> Belbin</a> para alcançar os melhores desejados.
-
         </p>
         <br>
-          <h1 id="text-body2">Aqui nos pensamos por você e lhe entregamos os melhores resultados!</h1>
+        <h1 id="text-body">
+          Aqui nos pensamos por você e lhe entregamos os melhores resultados!
+        </h1>
         <br>
         <p><b> CHEGA DISSO!</b></p>
         <ul>
@@ -20,9 +21,9 @@
           <li><b>Conflitos no trabalho em equipe</b></li>
         </ul>
         <br>
-          <p class="text-body">
-            Conheça as melhores oportunidades! Todas as oportunidades listadas passaram por um processo de curadoria para garantir a melhor qualidade possível das vagas. Nossa parceria com as empresas é feita de maneira transparente e visando melhores oportunidades e condições aos desenvolvedores.
-          </p>
+        <p class="text-body">
+          Conheça as melhores oportunidades! Todas as oportunidades listadas passaram por um processo de curadoria para garantir a melhor qualidade possível das vagas. Nossa parceria com as empresas é feita de maneira transparente e visando melhores oportunidades e condições aos desenvolvedores.
+        </p>
       </div>
       <div class="content-right">
         <img src="~/assets/logos/logo-default.svg" alt="Logo Unite US">
