@@ -141,7 +141,7 @@ export default {
       workAtOptions: [
         {
           text: 'Remoto',
-          value: 'remote'
+          value: 'remoto'
         },
         {
           text: 'Local',
@@ -149,7 +149,7 @@ export default {
         },
         {
           text: 'Remoto e Local',
-          value: 'remote/local'
+          value: 'remoto/local'
         }
       ]
     }

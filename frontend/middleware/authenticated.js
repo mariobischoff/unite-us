@@ -10,6 +10,6 @@ export default function ({ store, redirect, $axios }) {
     return redirect('/signin')
   } else {
     $axios.setToken(token)
-    store.dispatch('user/fetchUser', decoded.id)
+    store.dispatch('user/fetch', decoded.id)
   }
 }

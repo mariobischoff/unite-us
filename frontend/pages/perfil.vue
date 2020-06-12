@@ -68,10 +68,8 @@
       <PerfilForm :dialog="dialog" :user="JSON.parse(JSON.stringify(user))" @handleForm="handleForm" />
     </div>
     <div class="content-right">
-      <belbin-test v-if="!user.belbinTest" />
-      <div>
-        {{ user.belbinTest }}
-      </div>
+      <belbin-test v-if="!user.belbinTest" :id="user._id" />
+      <team-list v-else />
     </div>
   </div>
 </template>
@@ -80,12 +78,15 @@
 import { mapGetters } from 'vuex'
 import BelbinTest from '@/components/BelbinTest'
 import PerfilForm from '@/components/PerfilForm'
+import TeamList from '@/components/TeamList'
+
 export default {
   layout: 'BaseLayout',
-  // middleware: 'authenticated',
+  middleware: 'authenticated',
   components: {
     BelbinTest,
-    PerfilForm
+    PerfilForm,
+    TeamList
   },
   data () {
     return {

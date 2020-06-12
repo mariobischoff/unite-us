@@ -19,24 +19,19 @@ export const actions = {
     const { id, token } = await this.$axios.$post('/users/auth', payload)
     localStorage.setItem('token', token)
     this.$axios.setToken(token)
-    await dispatch('fetchUser', id)
+    await dispatch('fetch', id)
   },
   logout ({ commit }) {
     localStorage.clear()
     commit('SET_USER', null)
   },
-  async fetchUser ({ commit }, id) {
-    if (id) {
-      const [user] = await this.$axios.$get(`/users/${id}`)
-      commit('SET_USER', user)
-    } else {
-      const users = await this.$axios.$get('/users')
-      commit('SET_USERS', users)
-    }
+  async fetch ({ commit }, id) {
+    const [user] = await this.$axios.$get(`/users/${id}`)
+    commit('SET_USER', user)
   },
   async update ({ commit, state, dispatch }, payload) {
     await this.$axios.put(`/users/${state.user._id}`, payload)
-    await dispatch('fetchUser', state.user._id)
+    await dispatch('fetch', state.user._id)
   },
   async register ({ commit }, payload) {
     await this.$axios.post('/users', payload)

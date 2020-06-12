@@ -54,9 +54,16 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Question from '@/components/Question'
 export default {
   components: { Question },
+  props: {
+    id: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       step: 0,
@@ -77,6 +84,9 @@ export default {
     this.fetchQuestions()
   },
   methods: {
+    ...mapActions({
+      fetchUser: 'user/fetch'
+    }),
     async fetchQuestions () {
       const questions = await this.$axios.$get('/questions')
       this.questions = questions.map(function (question) {
@@ -96,6 +106,9 @@ export default {
         }
       })
       await this.$axios.post('users/belbin', answers)
+        .then(() => {
+          this.fetchUser(this.id)
+        })
     }
   }
 }
