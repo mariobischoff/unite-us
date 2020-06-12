@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .container > .content-left
   flex: 2
   width: 800px

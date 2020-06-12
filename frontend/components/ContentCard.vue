@@ -100,9 +100,12 @@ export default {
 .container > .content-right > div > h1, p
   font-size: 100%
 
+.container > .content-right > div > ul
+  align-items: left
+
 .container > .content-right > div > ul > li
   padding-left: 8px
-  font-size: 100%
+  font-size: 75%
   border-radius: 6px
   border-left: solid 2px $primary
   list-style: none
