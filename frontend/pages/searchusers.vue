@@ -5,12 +5,13 @@
         Buscar usuários
       </h1>
       <v-text-field
+        v-model="search.expertise"
         class="input-primary"
         label="Especialidade"
         type="text"
       />
       <div class="content-right">
-        <button class="button-accept">
+        <button class="button-accept" @click="searchUsers()">
           Buscar Usuário
         </button>
       </div>
@@ -19,26 +20,40 @@
       <h1 class="content-title">
         Usuários Encontrados
       </h1>
-      <!-- <content-card class="card-content" />
-      <content-card class="card-content" />
-      <content-card class="card-content" />
-      <content-card class="card-content" /> -->
+      <content-card
+        v-for="user in users"
+        :key="user.id"
+        class="card-content"
+        type-content="User"
+        :content="user"
+      />
     </div>
   </div>
 </template>
 
 <script>
-// import ContentCard from '@/components/ContentCard.vue'
+import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',
-  // components: {
-  //   ContentCard
-  // },
+  components: {
+    ContentCard
+  },
   data () {
     return {
       search: {
         expertise: null
-      }
+      },
+      users: []
+    }
+  },
+  methods: {
+    async searchUsers () {
+      this.users = []
+      this.users = await this.$axios.$get('/users', {
+        params: {
+          expertise: this.search.expertise
+        }
+      })
     }
   }
 }
