@@ -38,6 +38,10 @@ export default {
   components: {
     ContentCard
   },
+  asyncData ({ params }) {
+    const id = params
+    return { id }
+  },
   data () {
     return {
       search: {
