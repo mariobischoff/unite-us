@@ -5,7 +5,7 @@
         Equipes
       </h1>
     </div>
-    <nuxt-link v-for="team in teams" :key="team._id" to="visualizeteam">
+    <nuxt-link v-for="team in teams" :key="team._id" to="visualizeteam" class="team-link">
       <content-card :content="team" class="card-content" />
     </nuxt-link>
   </div>
@@ -32,6 +32,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="sass" scoped>
+.team-link
+  text-decoration: none
 </style>
