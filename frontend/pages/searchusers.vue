@@ -26,7 +26,21 @@
         class="card-content"
         type-content="User"
         :content="user"
-      />
+      >
+        <v-card :elevation="n-1">
+          <v-btn
+            color="#28D04D"
+            dark
+            medium
+            absolute
+            bottom
+            right
+            fab
+          >
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </v-card>
+      </content-card>
     </div>
   </div>
 </template>
@@ -44,8 +58,9 @@ export default {
   },
   data () {
     return {
+      dialog: false,
       search: {
-        expertise: null
+        expertise: 'Developer'
       },
       users: []
     }
