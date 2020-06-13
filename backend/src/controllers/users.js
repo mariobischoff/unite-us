@@ -37,8 +37,8 @@ module.exports = class UsersController {
   async get (req, res) {
     try {
       var users
-      if (req.query.expertise) {
-        users = await this.User.find({ expertise: req.query.expertise })
+      if (req.query) {
+        users = await this.User.find(req.query)
       } else {
         users = await this.User.find({})
       }
