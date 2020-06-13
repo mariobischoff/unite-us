@@ -24,25 +24,28 @@
       <h1 class="content-title">
         Equipe
       </h1>
-      {{ team }}
-      <content-card v-for="member in members" :key="member._id" class="card-content" :content="member" />
+      <content-card
+        v-for="member in team.members"
+        :key="member.id"
+        class="card-content"
+        type-content="User"
+        :content="member"
+      />
     </div>
   </div>
 </template>
 
 <script>
-// import ContentCard from '@/components/ContentCard'
+import ContentCard from '@/components/ContentCard'
 export default {
   layout: 'BaseLayout',
   // middleware: 'authenticated',
   components: {
-    // ContentCard
+    ContentCard
   },
   async asyncData ({ $axios, params }) {
     const team = await $axios.$get(`teams/${params.id}`)
-    return {
-      team
-    }
+    return { team }
   }
 }
 </script>
