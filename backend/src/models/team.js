@@ -19,9 +19,10 @@ const schema = new Schema({
     required: true,
     ref: 'User'
   },
-  members: {
-    type: Array
-  }
+  members: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 })
 
 const Team = model('Team', schema)
