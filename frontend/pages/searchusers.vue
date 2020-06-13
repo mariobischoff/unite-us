@@ -19,21 +19,21 @@
       <h1 class="content-title">
         Usuários Encontrados
       </h1>
+      <!-- <content-card class="card-content" />
       <content-card class="card-content" />
       <content-card class="card-content" />
-      <content-card class="card-content" />
-      <content-card class="card-content" />
+      <content-card class="card-content" /> -->
     </div>
   </div>
 </template>
 
 <script>
-import ContentCard from '@/components/ContentCard.vue'
+// import ContentCard from '@/components/ContentCard.vue'
 export default {
   layout: 'BaseLayout',
-  components: {
-    ContentCard
-  },
+  // components: {
+  //   ContentCard
+  // },
   data () {
     return {
       search: {

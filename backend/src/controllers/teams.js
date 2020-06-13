@@ -7,6 +7,7 @@ module.exports = class TeamController {
     const { id } = req.decoded
     const team = this.Team(req.body)
     team.leader = id
+    team.members.push(id)
     try {
       await team.save()
       res.sendStatus(201)
