@@ -25,11 +25,22 @@ module.exports = class TeamController {
     }
   }
 
+  async getById (req, res) {
+    const { params: { id } } = req
+    try {
+      const team = await this.Team.findById(id).populate('members')
+      res.send(team)
+    } catch (err) {
+      res.status(400).send(err.message)
+    }
+  }
+
   async getByUserId (req, res) {
     const { decoded: { id } } = req
+    console.log('aqui')
     try {
-      const team = await this.Team.find({ leader: id }).populate('leader')
-      res.send(team)
+      const teams = await this.Team.find({ leader: id }).populate('leader')
+      res.send(teams)
     } catch (err) {
       res.status(400).send(err.message)
     }
