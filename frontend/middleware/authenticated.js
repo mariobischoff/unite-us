@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-export default function ({ store, redirect, $axios }) {
+export default async function ({ store, redirect, $axios }) {
   const token = localStorage.getItem('token')
   if (!token) {
     return redirect('/signup')
@@ -10,6 +10,6 @@ export default function ({ store, redirect, $axios }) {
     return redirect('/signin')
   } else {
     $axios.setToken(token)
-    store.dispatch('user/fetch', decoded.id)
+    await store.dispatch('user/fetch', decoded.id)
   }
 }

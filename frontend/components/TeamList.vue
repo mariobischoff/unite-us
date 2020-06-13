@@ -5,7 +5,7 @@
         Equipes
       </h1>
     </div>
-    <nuxt-link v-for="team in teams" :key="team._id" to="visualizeteam" class="team-link">
+    <nuxt-link v-for="team in teams" :key="team._id" :to="{ name: 'team-id', params: { id: team._id }}" class="team-link">
       <content-card :content="team" class="card-content" />
     </nuxt-link>
   </div>
