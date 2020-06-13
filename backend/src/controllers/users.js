@@ -36,7 +36,12 @@ module.exports = class UsersController {
 
   async get (req, res) {
     try {
-      const users = await this.User.find({})
+      var users
+      if (req.query.expertise) {
+        users = await this.User.find({ expertise: req.query.expertise })
+      } else {
+        users = await this.User.find({})
+      }
       return res.send(users)
     } catch (err) {
       return res.status(400).send(err.message)
