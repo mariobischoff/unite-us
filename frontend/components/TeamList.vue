@@ -1,8 +1,12 @@
 <template>
   <div>
-    LISTA DE TIMES
+    <div class="content-right">
+      <h1 class="content-title">
+        Equipes
+      </h1>
+    </div>
     <nuxt-link v-for="team in teams" :key="team._id" to="visualizeteam">
-      <content-card :content="team" />
+      <content-card :content="team" class="card-content" />
     </nuxt-link>
   </div>
 </template>

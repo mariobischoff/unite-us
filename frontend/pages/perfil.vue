@@ -142,7 +142,8 @@ p
 
 .container > .content-right
   flex: 3
-  align-items: center
+  justify-content: flex-start
+  align-items: flex-end
   margin-bottom: 60px
 
 </style>
