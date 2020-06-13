@@ -3,12 +3,14 @@
     <div class="content-left">
       <img src="~/assets/pictures/photo.jpg" alt="image">
       <div>
-        <h1>{{ content.name | capitalize }}</h1>
+        <h1 class="text-capitalize">
+          {{ content.name }}
+        </h1>
         <p v-if=" typeContent === 'User' ">
           {{ content.expertise }}
         </p>
         <p v-else>
-          {{ content.members.lenght }}
+          {{ content.members.length }}
         </p>
       </div>
     </div>
@@ -38,8 +40,8 @@
         <h1 class="content-title">
           Forma de Trabalho
         </h1>
-        <p class="text-body">
-          {{ content.workAt | capitalize }}
+        <p class="text-body text-capitalize">
+          {{ content.workAt }}
         </p>
       </div>
     </div>
@@ -48,13 +50,6 @@
 
 <script>
 export default {
-  filters: {
-    capitalize: (value) => {
-      if (!value) { return '' }
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    }
-  },
   props: {
     typeContent: {
       type: String,

@@ -32,7 +32,15 @@
               />
             </v-col>
             <v-col cols="12" sm="6">
-              <v-text-field v-model="user.lastGraduation" label="Ultima Formação Academica" color="#952597" />
+              <v-select
+                v-model="user.lastGraduation"
+                label="Ultima Formação Academica"
+                color="#952597"
+                :items="lastGraduationOptions"
+                item-color="purple"
+                attach
+                chip
+              />
             </v-col>
             <v-col cols="12" sm="6">
               <v-text-field v-model="user.city" label="Cidade" color="#952597" />
@@ -137,6 +145,14 @@ export default {
         'Outra',
         'Javascript',
         'Ruby'
+      ],
+      lastGraduationOptions: [
+        'Doutorado',
+        'Mestrado',
+        'Pós-Graduação',
+        'Bacharel',
+        'Técnico',
+        'Ensino Médio'
       ],
       workAtOptions: [
         {

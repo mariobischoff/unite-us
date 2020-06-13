@@ -25,7 +25,7 @@
       <h2 class="text-subtitle">
         Disponibilidade
       </h2>
-      <span class="text-body">
+      <span class="text-body text-capitalize">
         {{ user.workAt }}
       </span>
       <h2 class="text-subtitle">
@@ -57,7 +57,7 @@
       >
         {{ skill }}
       </span>
-      <div id="box-edit-button">
+      <div id="box-edit-button" class="justify-start mt-2">
         <v-btn rounded color="#28D04D" small @click="dialog = !dialog">
           <v-icon color="white" class="mr-2">
             mdi-cog
