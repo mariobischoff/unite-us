@@ -8,7 +8,7 @@
           {{ content.expertise }}
         </p>
         <p v-else>
-          {{ content.members.leght }}
+          {{ content.members.lenght }}
         </p>
       </div>
     </div>
