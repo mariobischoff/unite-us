@@ -35,7 +35,7 @@
         class="button-accept mt-2 font-weight-bold align-self-center"
         color="green"
         text
-        @click="$router.push({ name: 'searchusers', params: { id: team._id, members: idsMembers } })"
+        @click="$router.push({ name: 'searchusers', params: { id: team._id } })"
       >
         Adicionar novo integrante
       </button>

@@ -54,7 +54,8 @@ export default {
     ContentCard
   },
   asyncData ({ params }) {
-    return JSON.parse(JSON.stringify(params))
+    const { id } = params
+    return { id }
   },
   data () {
     return {
@@ -75,9 +76,7 @@ export default {
       })
     },
     async addUser (userId) {
-      this.members.push(userId)
-      await this.$axios.put(`/teams/${this.id}`, { members: this.members })
-      this.members = []
+      await this.$axios.put(`/teams/${this.id}`, { member: userId })
     }
   }
 }
