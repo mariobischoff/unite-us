@@ -7,7 +7,6 @@ const teamsController = new TeamsController(Team)
 
 router.post('/', auth, (req, res) => teamsController.create(req, res))
 router.get('/', (req, res) => teamsController.get(req, res))
-router.get('/user', auth, (req, res) => teamsController.getByUserId(req, res))
 router.get('/:id', (req, res) => teamsController.getById(req, res))
 router.put('/:id', auth, (req, res) => teamsController.update(req, res))
 router.delete('/:id', auth, (req, res) => teamsController.remove(req, res))

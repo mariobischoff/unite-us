@@ -1,13 +1,13 @@
 const router = require('express').Router()
 const User = require('../models/user')
+const Team = require('../models/team')
 const UsersController = require('../controllers/users')
 const AuthService = require('../services/auth')
+const BelbinService = require('../services/belbin')
+
 const auth = require('../middlewares/auth')
 
-const usersController = new UsersController(User, AuthService)
-
-// BelbinTest
-router.post('/belbin', auth, (req, res) => usersController.belbinTest(req, res))
+const usersController = new UsersController(User, Team, AuthService, BelbinService)
 
 router.post('/', (req, res) => usersController.create(req, res))
 router.get('/', (req, res) => usersController.get(req, res))
