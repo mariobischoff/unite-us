@@ -27,7 +27,7 @@
         type-content="User"
         :content="user"
       >
-        <v-card :elevation="n-1">
+        <v-card>
           <v-btn
             color="#28D04D"
             dark
@@ -36,13 +36,43 @@
             bottom
             right
             fab
-            @click="addUser(user._id)"
+            @click="() => {
+              targetUser = user
+              showDialog()
+            }"
           >
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </v-card>
       </content-card>
     </div>
+    <v-dialog
+      v-model="dialog.show"
+      max-width="300"
+    >
+      <v-card>
+        <v-card-title class="content-title">
+          {{ dialog.text }}
+        </v-card-title>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog.show = false"
+          >
+            Cancelar
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="addUser(targetUser._id)"
+          >
+            Aceitar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -60,14 +90,22 @@ export default {
   },
   data () {
     return {
-      dialog: false,
+      dialog: {
+        show: false,
+        text: ''
+      },
       search: {
         expertise: 'Developer'
       },
-      users: []
+      users: [],
+      targetUser: null
     }
   },
   methods: {
+    showDialog () {
+      this.dialog.text = `Quer adicionar ${this.targetUser.name} na sua equipe ?`
+      this.dialog.show = true
+    },
     async searchUsers () {
       this.users = []
       this.users = await this.$axios.$get('/users', {
@@ -82,6 +120,7 @@ export default {
         if (!same) {
           this.members.push(userId)
           await this.$axios.put(`/teams/${this.id}`, { members: this.members })
+          this.users = []
           this.members = []
         }
       } catch (error) {
