@@ -69,7 +69,7 @@
     </div>
     <div class="content-right">
       <belbin-test v-if="!user.belbinTest" :id="user._id" />
-      <team-list v-else />
+      <team-list v-else :user-id="user._id" />
     </div>
   </div>
 </template>

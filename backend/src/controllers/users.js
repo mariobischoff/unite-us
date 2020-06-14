@@ -1,9 +1,11 @@
 const calculateBelbin = require('../utils/belbinTest')
 
 module.exports = class UsersController {
-  constructor (User, AuthService) {
+  constructor (User, Team, AuthService, BelbinService) {
     this.User = User
+    this.Team = Team
     this.AuthService = AuthService
+    this.BelbinService = BelbinService
   }
 
   async create (req, res) {
@@ -20,28 +22,10 @@ module.exports = class UsersController {
     }
   }
 
-  async belbinTest (req, res) {
-    const data = req.body
-    const { decoded: { id } } = req
-    const answers = calculateBelbin(data)
-    try {
-      const user = await this.User.findById(id)
-      user.belbinTest = answers
-      await user.save()
-      return res.sendStatus(200)
-    } catch (err) {
-      return res.status(400).send(err.message)
-    }
-  }
-
   async get (req, res) {
+    const { query } = req
     try {
-      var users
-      if (req.query) {
-        users = await this.User.find(req.query)
-      } else {
-        users = await this.User.find({})
-      }
+      const users = await this.User.find(query)
       return res.send(users)
     } catch (err) {
       return res.status(400).send(err.message)
@@ -62,6 +46,13 @@ module.exports = class UsersController {
 
   async update (req, res) {
     const body = req.body
+
+    // if user send answers
+    if (body.answers) {
+      const belbinSerive = new this.BelbinService()
+      body.belbinTest = belbinSerive.calculateAnswer(body.answers)
+      delete body.answers
+    }
 
     try {
       const user = await this.User.findById(req.params.id)

@@ -17,8 +17,9 @@ module.exports = class TeamController {
   }
 
   async get (req, res) {
+    const query = req.query
     try {
-      const teams = await this.Team.find().populate('leader')
+      const teams = await this.Team.find(query).populate('leader')
       res.send(teams)
     } catch (err) {
       res.status(400).send(err.message)
@@ -35,26 +36,11 @@ module.exports = class TeamController {
     }
   }
 
-  async getByUserId (req, res) {
-    const { decoded: { id } } = req
-    console.log('aqui')
-    try {
-      const teams = await this.Team.find({ leader: id }).populate('leader')
-      res.send(teams)
-    } catch (err) {
-      res.status(400).send(err.message)
-    }
-  }
-
   async update (req, res) {
-    const body = req.body
     try {
-      const team = await this.Team.findById(req.params.id)
-      team.email = body.email
-      for (const key in Object.keys(body)) {
-        team[key] = body[key]
-      }
-      await team.save()
+      console.log(req.body)
+      const result = await this.Team.updateOne({ _id: req.params.id }, req.body)
+      console.log(result)
       res.sendStatus(200)
     } catch (err) {
       res.status(422).send(err.message)
