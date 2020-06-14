@@ -1,5 +1,3 @@
-const calculateBelbin = require('../utils/belbinTest')
-
 module.exports = class UsersController {
   constructor (User, Team, AuthService, BelbinService) {
     this.User = User
@@ -30,6 +28,12 @@ module.exports = class UsersController {
     } catch (err) {
       return res.status(400).send(err.message)
     }
+  }
+
+  async getBest (req, res) {
+    const belbinSerive = new this.BelbinService(this.Team)
+    await belbinSerive.getBestUsers(req.params.teamId)
+    res.sendStatus(200)
   }
 
   async getById (req, res) {

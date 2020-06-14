@@ -9,6 +9,8 @@ const auth = require('../middlewares/auth')
 
 const usersController = new UsersController(User, Team, AuthService, BelbinService)
 
+router.get('/best/:teamId', (req, res) => usersController.getBest(req, res))
+
 router.post('/', (req, res) => usersController.create(req, res))
 router.get('/', (req, res) => usersController.get(req, res))
 router.get('/:id', auth, (req, res) => usersController.getById(req, res))
