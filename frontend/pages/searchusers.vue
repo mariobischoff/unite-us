@@ -36,6 +36,7 @@
             bottom
             right
             fab
+            @click="addUser(user._id)"
           >
             <v-icon>mdi-plus</v-icon>
           </v-btn>
@@ -53,8 +54,7 @@ export default {
     ContentCard
   },
   asyncData ({ params }) {
-    const id = params
-    return { id }
+    return JSON.parse(JSON.stringify(params))
   },
   data () {
     return {
@@ -73,6 +73,11 @@ export default {
           expertise: this.search.expertise
         }
       })
+    },
+    async addUser (userId) {
+      this.members.push(userId)
+      await this.$axios.put(`/teams/${this.id}`, { members: this.members })
+      this.members = []
     }
   }
 }

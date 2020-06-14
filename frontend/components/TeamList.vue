@@ -17,6 +17,12 @@ export default {
   components: {
     ContentCard
   },
+  props: {
+    userId: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       teams: []
@@ -24,7 +30,11 @@ export default {
   },
 
   mounted () {
-    this.$axios.$get('/teams/user')
+    this.$axios.$get('/teams', {
+      params: {
+        leader: this.userId
+      }
+    })
       .then((data) => {
         this.teams = data
       })

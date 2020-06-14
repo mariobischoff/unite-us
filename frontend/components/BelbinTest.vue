@@ -105,7 +105,7 @@ export default {
           value: question.value
         }
       })
-      await this.$axios.post('users/belbin', answers)
+      await this.$axios.put(`users/${this.id}`, { answers })
         .then(() => {
           this.fetchUser(this.id)
         })

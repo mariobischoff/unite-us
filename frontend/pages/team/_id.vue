@@ -31,28 +31,12 @@
         type-content="User"
         :content="member"
       />
-      <content-card
-        v-for="member in team.members"
-        :key="member.id"
-        class="card-content align-self-center"
-        type-content="User"
-        :content="member"
-      />
-      <content-card
-        v-for="member in team.members"
-        :key="member.id"
-        class="card-content align-self-center"
-        type-content="User"
-        :content="member"
-      />
-      <content-card
-        v-for="member in team.members"
-        :key="member.id"
-        class="card-content align-self-center"
-        type-content="User"
-        :content="member"
-      />
-      <button class="button-accept mt-2 font-weight-bold align-self-center" color="green" text @click="$router.push({ name: 'searchusers', params: { id: team._id } })">
+      <button
+        class="button-accept mt-2 font-weight-bold align-self-center"
+        color="green"
+        text
+        @click="$router.push({ name: 'searchusers', params: { id: team._id, members: idsMembers } })"
+      >
         Adicionar novo integrante
       </button>
     </div>
@@ -70,6 +54,11 @@ export default {
   async asyncData ({ $axios, params }) {
     const team = await $axios.$get(`teams/${params.id}`)
     return { team }
+  },
+  computed: {
+    idsMembers () {
+      return this.team.members.map(element => element._id)
+    }
   }
 }
 </script>

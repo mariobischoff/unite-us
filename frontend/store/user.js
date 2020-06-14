@@ -16,10 +16,9 @@ export const getters = {
 
 export const actions = {
   async login ({ dispatch }, payload) {
-    const { id, token } = await this.$axios.$post('/users/auth', payload)
+    const { token } = await this.$axios.$post('/users/auth', payload)
     localStorage.setItem('token', token)
     this.$axios.setToken(token)
-    await dispatch('fetch', id)
   },
   logout ({ commit }) {
     localStorage.clear()
