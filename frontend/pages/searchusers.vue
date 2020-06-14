@@ -54,8 +54,9 @@ export default {
     ContentCard
   },
   asyncData ({ params }) {
-    const { id } = params
-    return { id }
+    const id = params.id
+    const members = params.members
+    return { id, members }
   },
   data () {
     return {
@@ -76,7 +77,16 @@ export default {
       })
     },
     async addUser (userId) {
-      await this.$axios.put(`/teams/${this.id}`, { member: userId })
+      try {
+        const same = this.members.includes(userId)
+        if (!same) {
+          this.members.push(userId)
+          await this.$axios.put(`/teams/${this.id}`, { members: this.members })
+          this.members = []
+        }
+      } catch (error) {
+        alert(error)
+      }
     }
   }
 }

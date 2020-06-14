@@ -1,11 +1,13 @@
 <template>
   <v-footer id="footer">
     <div id="supporters">
-      <p>Apoiadores</p>
-      <img src="~/assets/logos/logo-fatece.png" alt="Fatece Logo" width="200px">
+      <img src="~/assets/logos/logo-fatece.png" alt="Fatece Logo" width="150px">
+      <img src="~/assets/logos/logo-negative.svg" alt="UniteUs Logo" width="40px">
     </div>
     <div id="informations">
-      <p>informações</p>
+      <p>
+        Copyright © 1999 - 2020 UniteUs Operating Company, LLC. Todos os direitos reservados.
+      </p>
     </div>
   </v-footer>
 </template>
@@ -29,8 +31,9 @@ export default {
   align-items: center
 
 #footer > #supporters
-    display: flex
-    align-items: center
+  display: flex
+  align-items: center
+
 #footer > #supporters > p
   margin: 0px
 
