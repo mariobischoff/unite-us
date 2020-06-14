@@ -27,7 +27,7 @@
         </p>
       </div>
       <div class="content-right">
-        <img src="~/assets/logos/logo-default.svg" alt="Logo Unite US">
+        <img src="~/assets/images-content/Sucesso.png" alt="fluxograma de sucesso">
       </div>
     </div>
   </div>
@@ -44,13 +44,13 @@ export default {
   flex: 2
 
 .container > .content-right
-  flex: 1
+  flex: 3
   justify-content: top
   align-items: flex-end
   padding: 5%
 
 .container > .content-right > img
-  height: 200px
+  width: 100%
 
 </style>
 
