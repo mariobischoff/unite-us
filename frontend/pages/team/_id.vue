@@ -4,35 +4,35 @@
       <h1 class="text-title">
         Nome da equipe
       </h1>
-      <p class="text-body">
+      <span class="text-body">
         {{ team.name }}
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Objetivo da Equipe
       </h2>
-      <p class="text-body">
+      <span class="text-body">
         {{ team.goal }}
-      </p>
+      </span>
       <h2 class="text-subtitle">
         Forma de Trabalho
       </h2>
-      <p class="text-body">
+      <span class="text-body">
         {{ team.workAt }}
-      </p>
+      </span>
     </div>
     <div class="content-right">
-      <h1 class="content-title align-self-center">
+      <h1 class="content-title">
         Equipe
       </h1>
       <content-card
         v-for="member in team.members"
         :key="member.id"
-        class="card-content align-self-center"
+        class="card-content"
         type-content="User"
         :content="member"
       />
       <button
-        class="button-accept mt-2 font-weight-bold align-self-center"
+        class="button-accept mt-2 font-weight-bold"
         color="green"
         text
         @click="$router.push({ name: 'searchusers', params: { id: team._id } })"
@@ -65,10 +65,18 @@ export default {
 
 <style lang="sass" scoped>
 
+.text-subtitle
+  margin: 0
+
+span
+  margin: 5px 0 20px 0
+
 .container > .content-left
   flex: 2
 
 .container > .content-right
   flex: 3
+  justify-content: flex-end
+  align-items: flex-end
 
 </style>
