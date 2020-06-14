@@ -39,19 +39,7 @@ module.exports = class TeamController {
   async update (req, res) {
     const { body } = req
     try {
-<<<<<<< HEAD
-      const team = await this.Team.findById(req.params.id)
-      if (body.member) {
-        team.members.push(body.member)
-        delete body.member
-      }
-      for (const key of Object.keys(body)) {
-        team[key] = body[key]
-      }
-      await team.save()
-=======
       await this.Team.findByIdAndUpdate({ _id: req.params.id }, req.body)
->>>>>>> 26127c55b6d7f2869bb7bc099569db5c58cfc108
       res.sendStatus(200)
     } catch (err) {
       res.status(422).send(err.message)
