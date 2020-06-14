@@ -31,27 +31,6 @@
         type-content="User"
         :content="member"
       />
-      <content-card
-        v-for="member in team.members"
-        :key="member.id"
-        class="card-content align-self-center"
-        type-content="User"
-        :content="member"
-      />
-      <content-card
-        v-for="member in team.members"
-        :key="member.id"
-        class="card-content align-self-center"
-        type-content="User"
-        :content="member"
-      />
-      <content-card
-        v-for="member in team.members"
-        :key="member.id"
-        class="card-content align-self-center"
-        type-content="User"
-        :content="member"
-      />
       <button class="button-accept mt-2 font-weight-bold align-self-center" color="green" text @click="$router.push({ name: 'searchusers', params: { id: team._id } })">
         Adicionar novo integrante
       </button>
