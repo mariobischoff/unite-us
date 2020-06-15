@@ -35,7 +35,7 @@
         class="button-accept mt-2 font-weight-bold"
         color="green"
         text
-        @click="$router.push({ name: 'searchusers', params: { id: team._id } })"
+        @click="$router.push({ name: 'searchusers', params: { id: team._id, members: idsMembers(), teamName: team.name } })"
       >
         Adicionar novo integrante
       </button>
@@ -55,7 +55,7 @@ export default {
     const team = await $axios.$get(`teams/${params.id}`)
     return { team }
   },
-  computed: {
+  methods: {
     idsMembers () {
       return this.team.members.map(element => element._id)
     }
