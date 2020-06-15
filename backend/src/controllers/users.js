@@ -31,9 +31,21 @@ module.exports = class UsersController {
   }
 
   async getBest (req, res) {
+    const { params: { teamId } } = req
     const belbinSerive = new this.BelbinService(this.Team)
-    await belbinSerive.getBestUsers(req.params.teamId)
-    res.sendStatus(200)
+
+    const { members: teamMembers } = await this.Team.findById(teamId)
+      .select('members')
+
+    const users = await this.User.find({
+      _id: { $nin: teamMembers },
+      belbinTest: { $exists: true },
+      ...req.query
+    })
+
+    const bestUsers = await belbinSerive.filterUsers(users, teamId)
+
+    res.send(bestUsers)
   }
 
   async getById (req, res) {
