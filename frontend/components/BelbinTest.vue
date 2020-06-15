@@ -42,6 +42,7 @@
         Enviar Teste
       </button>
       <button
+        :disabled="maxValue() !== 0"
         v-else
         class="button-accept"
         depressed

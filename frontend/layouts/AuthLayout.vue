@@ -12,7 +12,6 @@ export default {
 
 <style lang="sass">
 .layout-auth
-  background: rgb(62, 153, 214)
   background: radial-gradient(circle, $primary 70%, rgba(149,37,130,1) 100%)
   display: flex
   justify-content: center

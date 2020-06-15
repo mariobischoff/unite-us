@@ -1,6 +1,6 @@
 <template>
   <div div="container" data-app>
-    <v-card class="card" outlined width="500px">
+    <v-card class="auth-card" outlined width="500px">
       <div class="logo">
         <p class="text-title">
           Bem vindo a
@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.card
+.auth-card
   height: auto
   padding: 10px 20px
   display: flex
@@ -91,26 +91,26 @@ export default {
   align-items: center
   flex-direction: column
 
-.card > .logo
+.auth-card > .logo
   display: flex
   justify-content: center
   align-items: center
 
-.card > .logo > .text-title
+.auth-card > .logo > .text-title
   color: $primary
   padding: 0 10px
 
-.card > .logo > img
+.auth-card > .logo > img
   width: 25%
 
-.card > .inputs
+.auth-card > .inputs
   width: 370px
 
-.card > .buttons
+.auth-card > .buttons
   width: 370px
   display: flex
   justify-content: space-around
 
-.card > .buttons > .buttom-any
+.auth-card > .buttons > .buttom-any
   font-size: 15px
 </style>
