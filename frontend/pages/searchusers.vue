@@ -112,7 +112,7 @@ export default {
       this.users = []
       this.users = await this.$axios.$get(`/users/best/${this.id}`, {
         params: {
-          expertise: this.search.expertise.toLowerCase()
+          expertise: this.search.expertise
         }
       })
     },
