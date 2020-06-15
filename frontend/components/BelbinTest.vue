@@ -42,13 +42,15 @@
         Enviar Teste
       </button>
       <button
-        :disabled="maxValue() !== 0"
         v-else
+        :disabled="maxValue() !== 0"
+        exact
+        :style="maxValue() !== 0 ? 'background-color: #CCC' : ''"
         class="button-accept"
         depressed
         @click="step++"
       >
-        Proximo
+        Próximo
       </button>
     </v-card-actions>
   </v-card>
@@ -125,5 +127,8 @@ export default {
 
 .v-divider
   margin: 10px 30px 10px 30px
+
+.button-disabled
+  background-color: #CCC
 
 </style>
