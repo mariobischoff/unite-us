@@ -1,6 +1,6 @@
 <template>
   <div div="container">
-    <v-card class="card" outlined @keypress.enter="authenticate">
+    <v-card class="auth-card" outlined @keypress.enter="authenticate">
       <div class="logo">
         <img src="~/assets/logos/logo-default.svg" alt="Logo Unite US">
       </div>
@@ -74,25 +74,25 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.card
+.auth-card
   height: auto
   padding: 20px
   display: flex
   justify-content: center
   flex-direction: column
 
-.card > .logo
+.auth-card > .logo
   display: flex
   justify-content: center
 
-.card > .logo > img
+.auth-card > .logo > img
   width: 25%
 
-.card > .buttons
+.auth-card > .buttons
   display: flex
   justify-content: space-around
 
-.card > .buttom-any
+.auth-card > .buttom-any
   margin: 0 0 3px 0
   font-size: 10px
 
