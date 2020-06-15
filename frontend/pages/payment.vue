@@ -1,10 +1,15 @@
 <template>
   <div class="container">
-    <h1>pagamento</h1>
+    <card-form />
   </div>
 </template>
 
 <script>
+import CardForm from '@/components/Card/CardForm'
 export default {
+  components: {
+    CardForm
+  },
+  layout: 'AuthLayout'
 }
 </script>

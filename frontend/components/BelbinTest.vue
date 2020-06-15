@@ -42,8 +42,8 @@
         Enviar Teste
       </button>
       <button
-        :disabled="maxValue() !== 0"
         v-else
+        :disabled="maxValue() !== 0"
         class="button-accept"
         depressed
         @click="step++"
