@@ -36,6 +36,7 @@
             bottom
             right
             fab
+            depressed
             @click="() => {
               targetUser = user
               showDialog()
