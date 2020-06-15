@@ -119,7 +119,7 @@ export default {
         const same = this.members.includes(userId)
         if (!same) {
           this.members.push(userId)
-          await this.$axios.put(`/teams/${this.id}`, { members: this.members })
+          await this.$axios.put(`/users/best/${this.id}`, { members: this.members })
           this.users = []
           this.members = []
         }
