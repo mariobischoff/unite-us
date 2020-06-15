@@ -87,7 +87,8 @@ export default {
   asyncData ({ params }) {
     const id = params.id
     const members = params.members
-    return { id, members }
+    const teamName = params.teamName
+    return { id, members, teamName }
   },
   data () {
     return {
@@ -104,14 +105,14 @@ export default {
   },
   methods: {
     showDialog () {
-      this.dialog.text = `Quer adicionar ${this.targetUser.name} na sua equipe ?`
+      this.dialog.text = `Quer adicionar ${this.targetUser.name} na equipe ${this.teamName} ?`
       this.dialog.show = true
     },
     async searchUsers () {
       this.users = []
-      this.users = await this.$axios.$get('/users', {
+      this.users = await this.$axios.$get(`/users/best/${this.id}`, {
         params: {
-          expertise: this.search.expertise
+          expertise: this.search.expertise.toLowerCase()
         }
       })
     },
@@ -119,10 +120,9 @@ export default {
       try {
         const same = this.members.includes(userId)
         if (!same) {
-          this.members.push(userId)
-          await this.$axios.put(`/users/best/${this.id}`, { members: this.members })
+          await this.$axios.put(`/teams/${this.id}`, { members: this.members.push(userId) })
           this.users = []
-          this.members = []
+          this.dialog.show = false
         }
       } catch (error) {
         alert(error)
