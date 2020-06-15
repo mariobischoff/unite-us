@@ -18,7 +18,9 @@
           <li>Falta de atenção da empresa ?</li>
           <li>Conflitos no trabalho em equipe ?</li>
         </ul>
-        <h1 class="content-title">CHEGA DISSO !</h1>
+        <h1 class="content-title">
+          CHEGA DISSO !
+        </h1>
         <p class="text-body">
           Todas as oportunidades listadas passaram por um processo de curadoria para garantir a melhor qualidade possível das vagas. Nossa parceria com as empresas é feita de maneira transparente e visando melhores oportunidades e condições aos desenvolvedores.
         </p>
