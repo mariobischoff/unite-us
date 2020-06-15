@@ -37,9 +37,9 @@ module.exports = class TeamController {
   }
 
   async update (req, res) {
-    const { body } = req
     try {
       await this.Team.findByIdAndUpdate({ _id: req.params.id }, req.body)
+      console.log('hi')
       res.sendStatus(200)
     } catch (err) {
       res.status(422).send(err.message)
