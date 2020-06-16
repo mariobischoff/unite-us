@@ -4,16 +4,19 @@
       <h1 class="text-title">
         Buscar usuários
       </h1>
-      <v-text-field
+      <v-select
         v-model="search.expertise"
         class="input-primary"
         label="Especialidade"
-        type="text"
+        :items="expertiseOptions"
       />
       <div class="content-right">
         <button class="button-accept" @click="searchUsers()">
           Buscar Usuário
         </button>
+        <nuxt-link :to="{ name: 'team-id', params: { id }}" class="button-any" style="text-align: center">
+          Voltar
+        </nuxt-link>
       </div>
     </div>
     <div class="content-right">
@@ -100,7 +103,12 @@ export default {
         expertise: 'Developer'
       },
       users: [],
-      targetUser: null
+      targetUser: null,
+      expertiseOptions: [
+        'Design',
+        'Developer',
+        'RH'
+      ]
     }
   },
   methods: {
@@ -140,5 +148,10 @@ export default {
 
 .container > .content-right
   flex: 2
+  align-items: flex-end
+
+.button-any
+  text-align: center
+  text-decoration: none
 
 </style>
