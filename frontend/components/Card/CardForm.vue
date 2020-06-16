@@ -57,7 +57,7 @@
               @change="changeMonth"
             >
               <option value disabled selected>
-                Month
+                Mes
               </option>
               <option
                 v-for="n in 12"
@@ -76,7 +76,7 @@
               @change="changeYear"
             >
               <option value disabled selected>
-                Year
+                Ano
               </option>
               <option
                 v-for="(n, $index) in 12"
@@ -108,6 +108,10 @@
 
       <button class="card-form__button" @click="submitPayment">
         Pagar
+      </button>
+
+      <button class="button-any" style="width: 100%;" text @click="$router.push('/perfil')">
+        voltar
       </button>
     </div>
   </div>
@@ -258,7 +262,12 @@ export default {
     },
     async submitPayment () {
       if (this.isVaildCard()) {
-        await this.$axios.post('/payment', this.fields)
+        await this.$axios.post('/pay', {
+          card_number: this.cardNumber,
+          card_holder_name: this.cardName,
+          card_expiration_date: this.cardMonth + this.cardYear,
+          card_cvv: this.cardCvv
+        })
       }
     },
     blurCardNumber () {

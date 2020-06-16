@@ -43,6 +43,7 @@
 import { mapActions } from 'vuex'
 export default {
   layout: 'AuthLayout',
+  middleware: 'authenticated',
   data () {
     return {
       workAtOptions: [
@@ -82,6 +83,7 @@ export default {
         })
     }
   }
+
 }
 </script>
 

@@ -36,6 +36,7 @@ export default {
   components: {
     CardForm
   },
+  middleware: 'authenticated',
   layout: 'AuthLayout'
 }
 </script>
@@ -50,13 +51,14 @@ export default {
 .box-content-line
   border: solid 2px #fff
   padding: 30px
+  padding-left: 50px
   border-radius: 20px
 
 .box-content-solid
   margin-top: 30px
   background-color: #fff
   border-radius: 20px
-  padding: 20px 2px 20px 2px
+  padding: 20px 4px 20px 4px
 
 .box-content-solid > .content-title
   font-size: 300%
