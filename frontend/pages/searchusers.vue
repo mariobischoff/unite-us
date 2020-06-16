@@ -14,6 +14,9 @@
         <button class="button-accept" @click="searchUsers()">
           Buscar Usuário
         </button>
+        <nuxt-link :to="{ name: 'team-id', params: { id }}" class="button-any" style="text-align: center">
+          Voltar
+        </nuxt-link>
       </div>
     </div>
     <div class="content-right">
@@ -140,5 +143,9 @@ export default {
 
 .container > .content-right
   flex: 2
+
+.button-any
+  text-align: center
+  text-decoration: none
 
 </style>
