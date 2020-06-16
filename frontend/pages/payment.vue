@@ -42,6 +42,11 @@ export default {
 </script>
 
 <style lang="sass">
+.content-right
+  flex: 1
+  justify-content: end
+  align-items: end
+
 .content-title
   font-size: 400%
 

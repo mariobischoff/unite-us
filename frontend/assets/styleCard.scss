@@ -13,7 +13,7 @@ body {
 .wrapper {
   min-height: 100vh;
   display: flex;
-  padding: 50px 15px;
+  padding: 0;
   @media screen and (max-width: 700px), (max-height: 500px) {
     flex-wrap: wrap;
     flex-direction: column;
@@ -31,11 +31,10 @@ body {
 
   &__inner {
     background: #fff;
-    // box-shadow: 3px 13px 30px 0px rgba(21, 34, 67, 0.2);
-    // box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
     border-radius: 10px;
     padding: 35px;
     padding-top: 150px;
+    padding-bottom: 0;
 
     @media screen and (max-width: 480px) {
       padding: 25px;
@@ -97,10 +96,6 @@ body {
     }
   }
 
-  &__button:disable {
-    background: red;
-  }
-
   &__button {
     width: 100%;
     height: 55px;
@@ -123,7 +118,7 @@ body {
 
 .card-item {
   max-width: 430px;
-  height: 270px;
+  height: 220px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -188,7 +183,6 @@ body {
   &__side {
     border-radius: 15px;
     overflow: hidden;
-    // box-shadow: 3px 13px 30px 0px rgba(11, 19, 41, 0.5);
     box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
     transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);
     transform-style: preserve-3d;
@@ -358,8 +352,8 @@ body {
     font-weight: 500;
     line-height: 1;
     color: #fff;
-    font-size: 27px;
-    margin-bottom: 25px;
+    font-size: auto;
+    margin-bottom: 0px;
     display: inline-block;
     padding: 10px 15px;
     cursor: pointer;
