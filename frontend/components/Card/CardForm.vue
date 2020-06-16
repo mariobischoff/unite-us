@@ -116,7 +116,7 @@
         >
       </div>
 
-      <button class="card-form__button" :disabled="!allInputReady" @click="submitPayment">
+      <button class="button-accept" style="width: 100%" :disabled="!allInputReady" @click="submitPayment">
         Pagar
       </button>
 
@@ -333,8 +333,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import '../../assets/styleCard.scss';
+<style lang="scss" scopped>
+button {
+  width: 100%;
+}
 button:disabled {
   background-color:#949993;
   cursor:initial;

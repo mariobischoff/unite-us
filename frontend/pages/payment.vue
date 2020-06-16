@@ -44,21 +44,22 @@ export default {
 <style lang="sass">
 .content-title
   font-size: 400%
+  margin: 8px
 
 .white
-  color: #fff
+  color: #fff !important
 
 .box-content-line
   border: solid 2px #fff
-  padding: 30px
+  padding: 8px
   padding-left: 50px
   border-radius: 20px
 
 .box-content-solid
-  margin-top: 30px
+  margin-top: 18px
   background-color: #fff
   border-radius: 20px
-  padding: 20px 4px 20px 4px
+  padding: 10px 4px
 
 .box-content-solid > .content-title
   font-size: 300%
@@ -75,6 +76,4 @@ li
 .container
   padding: 0
 
-.card-form
-  max-width: 80%
 </style>
