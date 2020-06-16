@@ -11,12 +11,13 @@ module.exports = class PaymentService {
     this.cardHash = await this.client.security.encrypt({ ...card })
   }
 
-  async createSubscription (userEmail) {
-    this.client.subscriptions.create({
+  async createSubscription (userEmail, documentNumber) {
+    await this.client.subscriptions.create({
       plan_id: this.planId,
       card_hash: this.cardHash,
       customer: {
-        email: userEmail
+        email: userEmail,
+        document_number: documentNumber
       }
     })
   }
