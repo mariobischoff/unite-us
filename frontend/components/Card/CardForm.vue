@@ -105,14 +105,25 @@
           </div>
         </div>
       </div>
+      <div class="card-input">
+        <label for="cardName" class="card-input__label">CPF</label>
+        <input
+          v-model="formData.documentNumber"
+          type="text"
+          class="card-input__input"
+          data-card-field
+          autocomplete="off"
+        >
+      </div>
 
-      <button class="card-form__button" @click="submitPayment">
+      <button class="card-form__button" :disabled="!allInputReady" @click="submitPayment">
         Pagar
       </button>
 
       <button class="button-any" style="width: 100%;" text @click="$router.push('/perfil')">
         voltar
       </button>
+      <notifications classes="notify" position="center bottom" />
     </div>
   </div>
 </template>
@@ -186,6 +197,13 @@ export default {
     minCardMonth () {
       if (this.formData.cardYear === this.minCardYear) { return new Date().getMonth() + 1 }
       return 1
+    },
+    allInputReady () {
+      if (
+        this.formData.cardNumber && this.formData.cardName &&
+      this.formData.cardMonth && this.formData.cardYear && this.formData.cardCvv) {
+        return true
+      } else { return false }
     }
   },
   watch: {
@@ -261,14 +279,26 @@ export default {
       return true
     },
     async submitPayment () {
-      if (this.isVaildCard()) {
-        await this.$axios.post('/pay', {
-          card_number: this.cardNumber,
-          card_holder_name: this.cardName,
-          card_expiration_date: this.cardMonth + this.cardYear,
-          card_cvv: this.cardCvv
+      const monthYear = this.formData.cardMonth + this.formData.cardYear
+      await this.$axios.post('/pay', {
+        card_number: this.mainCardNumber,
+        card_holder_name: this.formData.cardName,
+        card_expiration_date: monthYear,
+        card_cvv: this.formData.cardCvv,
+        document_number: this.formData.documentNumber
+      })
+        .then((response) => {
+          this.$notify({
+            title: 'AVISO',
+            text: 'Aproveite os beneficios de ser um VIP'
+          })
         })
-      }
+        .catch((error) => {
+          this.$notify({
+            title: 'AVISO',
+            text: error.response.data.message
+          })
+        })
     },
     blurCardNumber () {
       if (this.isCardNumberMasked) {
@@ -305,4 +335,8 @@ export default {
 
 <style lang="scss">
 @import '../../assets/styleCard.scss';
+button:disabled {
+  background-color:#949993;
+  cursor:initial;
+}
 </style>
